@@ -1,0 +1,87 @@
+\documentclass[14pt,a4paper,oneside]{report}		%lớp văn bản
+\usepackage[utf8]{vietnam}						%gói ngôn ngữ tiếng Việt
+%--
+\usepackage{amsfonts}
+\usepackage{latexsym, amsmath, amsxtra, amssymb, amscd, amsthm}	%gói ký tự toán
+\usepackage{indentfirst}
+\usepackage{fancyheadings}
+\usepackage{color,colortbl}		%gói màu
+\usepackage{graphicx}			%gói hình ảnh 
+\usepackage{hyperref}			%gói liên kết link
+\usepackage[top=3.5cm, bottom=3.0cm, left=3.5cm, right=2cm] {geometry}
+\lhead{Mẫu báo cáo}
+\rhead{nguoicontraiphonui.blogspot.com}
+%//================================= Begin dinh nghia cac goi lenh
+\renewcommand{\contentsname}{Mục lục}
+\renewcommand{\chaptername}{Chương}
+\renewcommand\bibname{Tài liệu tham khảo}
+\newcommand{\gach}{\backslash}
+\newtheorem{theorem}{Định lý}
+%==================================// End dinh nghia cac goi lenh
+%//================================== Begin make title
+\title{{\bf  BÁO CÁO CUỐI KỲ MÔN MÔ HÌNH NGẪU NHIÊN VÀ ỨNG DỤNG}}
+\author{Tác giả: nguoicontraiphonui \hspace*{1cm}Website: http://nguoicontraiphonui.blogspot.com \and \\
+Soạn thảo văn bản \LaTeX{} bởi công cụ MikTeX $\&$ TeXmaker\\\\}
+\date{{\em \today}}
+%==================================// End make  title
+\begin{document}
+\pagestyle{fancy}	
+\Large												%co chu
+\maketitle											%make title
+\setlength{\baselineskip}{5truept}		%gian dong cho muc luc
+\tableofcontents									%tao muc luc
+\newpage
+\setlength{\baselineskip}{18truept}	%gian dong cho van ban
+%//==========================================Begin noi dung bai==
+\chapter*{Lời nói đầu}
+\addcontentsline{toc}{chapter}{\quad\  \bf Lời nói đầu}
+Đây là lời nói đầu
+%==============================
+\chapter{Chương mở đầu}
+Chương đầu có nội dung như sau
+
+\section{Phần đầu}
+Viết vài lời về phần đầu, bao gồm những phần nhỏ như sau
+\subsection{{\Large Phần nhỏ hơn đầu}}
+viết vào đây....
+
+\subsection{Phần nhỏ hơn tiếp}
+viết đây....
+\section{Phần tiếp}
+Viết chút vào đây...
+
+%============================
+\chapter{Chương tiếp}
+nội dung trang tiếp trình bày ở đây
+\section{Phần đầu chương tiếp}
+\newtheorem{vd}{Ví dụ}		%--dinh nghia dang theorem moi (trinh bay giong dang theorem)
+\begin{vd}
+Ví dụ minh họa....
+\end{vd}
+
+\begin{vd}
+Ví dụ minh họa tiếp....
+\end{vd}
+
+\section{Phần tiếp}
+Nội dung viết vào đây
+
+%============================
+\chapter*{Kết luận}
+\addcontentsline{toc}{chapter}{\quad\ \bf Kết luận}
+%============================
+%Tài liệu tham khảo
+\begin{thebibliography}{12}
+\addcontentsline{toc}{chapter}{\quad\  \bf Tài liệu tham khảo}
+\bibitem{1}Họ và tên tác giả, năm, {\it Tên sách} NXB.
+\bibitem{2}Họ và tên tác giả, năm, {\it Tên sách} NXB.
+\bibitem{3}Họ và tên tác giả, năm, {\it Tên sách} NXB.
+\bibitem{4}Họ và tên tác giả, năm, {\it Tên sách} NXB.
+\bibitem{5}Họ và tên tác giả, năm, {\it Tên sách} NXB.
+\end{thebibliography}
+
+%============================
+\chapter*{Thanks for reading!}
+Thanks for reading!
+%===========================================End noi dung bai==//
+\end{document}
