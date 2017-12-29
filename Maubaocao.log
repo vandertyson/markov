@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.12)  30 DEC 2017 04:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.5.12)  30 DEC 2017 05:19
 entering extended mode
 **Maubaocao.tex
 (Maubaocao.tex
@@ -837,248 +837,177 @@ l.33 \newpage
               [1
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                \kern 14.09654pt
-(hyperref)                removed on input line 37.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\ohorn'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 37.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ohorn' on input line 37.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 37.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 37.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 37.
-
-[2
-
-]
 Ch\uhorn \ohorn ng 1.
 
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\uhorn' on input line 40.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ohorn' on input line 40.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 40.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ohorn' on input line 40.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 40.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
+Package hyperref Warning: Composite letter `\textacute+\ohorn'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 40.
+(hyperref)                removing `\textacute' on input line 36.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 40.
+(hyperref)                removing `\ohorn' on input line 36.
 
 
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
+Package hyperref Warning: Composite letter `\textdotbelow+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 43.
+(hyperref)                removing `\textdotbelow' on input line 36.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 43.
+(hyperref)                removing `\ecircumflex' on input line 36.
 
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 43.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 43.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 43.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 45.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 45.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 45.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ohorn' on input line 45.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 45.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 45.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 45.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 48.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 48.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 48.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ohorn' on input line 48.
-
-
-Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 48.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 48.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 50.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 50.
-
-
-Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 50.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 50.
-
-[3
+[2
 
 ]
 Ch\uhorn \ohorn ng 2.
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\uhorn' on input line 54.
+(hyperref)                removing `\uhorn' on input line 43.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ohorn' on input line 54.
+(hyperref)                removing `\ohorn' on input line 43.
 
 
 Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 54.
+(hyperref)                removing `\textacute' on input line 46.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 54.
+(hyperref)                removing `\ecircumflex' on input line 46.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\dj' on input line 46.
+
+
+Package hyperref Warning: Composite letter `\textdotbelow+i'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textdotbelow' on input line 46.
 
 
 Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 56.
+(hyperref)                removing `\textasciigrave' on input line 51.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 56.
+(hyperref)                removing `\acircumflex' on input line 51.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 56.
-
-
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 56.
+(hyperref)                removing `\uhorn' on input line 51.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 56.
+(hyperref)                removing `\h' on input line 51.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\uhorn' on input line 56.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ohorn' on input line 56.
+(hyperref)                removing `\ohorn' on input line 51.
 
 
 Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 56.
+(hyperref)                removing `\textacute' on input line 53.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 56.
+(hyperref)                removing `\ecircumflex' on input line 53.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\dj' on input line 53.
+
+
+Package hyperref Warning: Composite letter `\textdotbelow+i'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textdotbelow' on input line 53.
+
+
+Package hyperref Warning: Composite letter `\textdotbelow+\acircumflex'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textdotbelow' on input line 54.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\acircumflex' on input line 54.
+
+
+Package hyperref Warning: Composite letter `\textdotbelow+\acircumflex'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textdotbelow' on input line 55.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\acircumflex' on input line 55.
 
 \c@vd=\count122
+[3
 
-Package hyperref Warning: Composite letter `\textasciigrave+\acircumflex'
+]
+Ch\uhorn \ohorn ng 3.
+
+Package hyperref Warning: Composite letter `\textacute+\UHORN'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciigrave' on input line 66.
+(hyperref)                removing `\textacute' on input line 69.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 66.
+(hyperref)                removing `\UHORN' on input line 69.
+
+
+Package hyperref Warning: Composite letter `\textdotbelow+u'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textdotbelow' on input line 69.
+
+
+Package hyperref Warning: Composite letter `\textdotbelow+\uhorn'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textdotbelow' on input line 69.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\uhorn' on input line 69.
 
 
 Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 66.
+(hyperref)                removing `\textacute' on input line 69.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 66.
+(hyperref)                removing `\ecircumflex' on input line 69.
 
 [4
 
 ]
+Ch\uhorn \ohorn ng 4.
 
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                \kern 14.09654pt
-(hyperref)                removed on input line 71.
+Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textacute' on input line 70.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\ecircumflex' on input line 70.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\h' on input line 70.
+
+[5
+
+]
+Ch\uhorn \ohorn ng 5.
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\h' on input line 71.
+
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\ocircumflex' on input line 71.
 
 
 Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
@@ -1098,7 +1027,7 @@ Package hyperref Warning: Composite letter `\textdotbelow+\acircumflex'
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\acircumflex' on input line 71.
 
-[5
+[6
 
 ]
 
@@ -1119,36 +1048,33 @@ Package hyperref Warning: Glyph not defined in PD1 encoding,
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\h' on input line 75.
 
-[6
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
+[7
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
- [7
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
  (Maubaocao.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 87.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 86.
 Package rerunfilecheck Info: File `Maubaocao.out' has not changed.
-(rerunfilecheck)             Checksum: E1DDE831D71D6CACCC968F4E4CCE01FA;596.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 87.
+(rerunfilecheck)             Checksum: 77FC3C13CE127C6BF60704FAA26398B7;784.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 7638 strings out of 493673
- 101881 string characters out of 3151265
- 193998 words of memory out of 3000000
- 10830 multiletter control sequences out of 15000+200000
+ 7644 strings out of 493673
+ 101953 string characters out of 3151265
+ 193995 words of memory out of 3000000
+ 10836 multiletter control sequences out of 15000+200000
  24879 words of font info for 63 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 34i,10n,45p,273b,371s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,10n,45p,668b,371s stack positions out of 5000i,500n,10000p,200000b,50000s
 <D:/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/MiKTeX/fonts/type1/vn
 tex/vnr/vnbx12.pfb><D:/MiKTeX/fonts/type1/vntex/vnr/vnr10.pfb><D:/MiKTeX/fonts/
 type1/vntex/vnr/vnr12.pfb><D:/MiKTeX/fonts/type1/vntex/vnr/vnr8.pfb><D:/MiKTeX/
 fonts/type1/vntex/vnr/vnti12.pfb>
-Output written on Maubaocao.pdf (8 pages, 76984 bytes).
+Output written on Maubaocao.pdf (8 pages, 83149 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
+ 138 PDF objects out of 1000 (max. 8388607)
  28 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
