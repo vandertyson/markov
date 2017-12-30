@@ -44,13 +44,171 @@ Khác với học có giám sát, trong học tăng cường không có các c�
 Chương đầu có nội dung như sau
 
 \section{Quá trình quyết định Markov}
-Viết vài lời về phần đầu, bao gồm những phần nhỏ như sau
-\subsection{{\Large Quá trình Markov}}
-viết vào đây....
+Quá trình quyết định Markov (MDP) cung cấp một nền tảng toán học cho việc mô hình hóa việc ra quyết định trong các tình huống mà kết quả là một phần ngẫu nhiên và một phần dưới sự điều khiển của một người ra quyết định. MDP rất hữu dụng cho việc học một loạt bài toán tối ưu hóa được giải quyết thông qua quy hoạch động và học tăng cường. MDP được biết đến sớm nhất là vào những năm 1950 (cf. Bellman 1957). Một cốt lõi của nghiên cứu về quá trình ra quyết định Markov là từ kết quả của cuốn sách của Ronald A. Howard xuất bản năm 1960, Quy hoạch động và quá trình Markov. Chúng được sử dụng trong rất nhiều các lĩnh vực khác nhau, bao gồm robot, điều khiển tự động,kinh tế, và chế tạo.
 
-\subsection{Quá trình Markov có phần thưởng}
-viết đây....
+Chính xác hơn, một quá trình quyết định Markov là một quá trình điều khiển ngẫu nhiên thời gian rời rạc. Tại mỗi bước thời gian, quá trình này trong một vài trạng thái $s$, và người ra quyết định có thể chọn bất kỳ hành động $a$ nào có hiệu lực trong trạng thái $s$. Quá trình này đáp ứng tại bước thời gian tiếp theo bằng cách di chuyển ngẫu nhiên vào một trạng thái mới $s'$, và đưa ra cho người ra quyết định một phần thưởng tương ứng $R_a(s,s')$.
+
+Xác suất mà quá trình di chuyển vào trạng thái mới của nó $s'$ bị ảnh hưởng bởi hành động được chọn. Đặc biệt, nó được đưa ra bởi hàm chuyển tiếp trạng thái $P_a(s,s')$. Do đó, trạng thái kế tiếp $s'$ phụ thuộc vào trạng thái hiện tại s và hành động của người ra quyết định $a$. Nhưng $s$ và $a$ đã cho, lại độc lập có điều kiện với toàn bộ trạng thái và hành động trước đó; nói cách khác, các trạng thái chuyển tiếp của một quá trình MDP thỏa mãn thuộc tính Markov.
+
+Quá trình quyết định Markov là một phần mở rộng của chuỗi Markov; khác biệt là ở sự bổ sung của các hành động (cho phép lựa chọn) và phần thưởng (cho động cơ). Ngược lại, nếu chỉ có một hành động tồn tại cho mỗi trạng thái và tất cả các phần thưởng là giống nhau (ví dụ: zero), một quá trình quyết định Markov làm giảm một chuỗi Markov.
 \subsection{Quá trình quyết định Markov}
+Để dễ dàng triển khai, chúng ta chỉ quan tâm đến các quá trình Markov đếm được và hệ số chiết khấu tiêu chuẩn. Tuy nhiên, trong một số điều kiện kỹ thuật, kết quả cũng được mở rộng ra cho các quá trình quyết định Markov liên tục liên tục.\\
+Một quá trình quyết định Markov $\mathcal{M} = (\mathcal{X},\mathcal{A},\mathcal{P}_0)$, với $\mathcal{X}$ là tập các trạng thái đếm được khác rỗng, $\mathcal{A}$ tập các hành động ($\mathcal{A}$ cũng là tập đếm được và khác rỗng). $\mathcal{P}_0$ là tập các xác suất chuyển ứng với mỗi cặp trạng thái và hành động tương ứng $(x,a) \in \mathcal{X}\times\mathcal{A}$ một độ đo xác suất trên $\mathcal{X}\times\mathbb{R}$ mà chúng ta định nghĩa bởi $\mathcal{P}_0(.|x,a)$. $\mathcal{P}_0$ có thể hiểu: cho $\mathcal{U}\subset\mathcal{X}\times\mathbb{R}$, $\mathcal{P}_0(U|x,a)$ là xác suất mà trạng thái kế tiếp và phần thưởng của $\mathcal{U}$ với trạng thái hiện tại là $x$, và hành động được thực hiện là $a$. Hệ số chiết khấu $\gamma$ với $0\leq \gamma\leq 1$.\\
+Xác suất chuyển trạng thái $\mathcal{P}$ với mỗi $(x,a,y)\in\mathcal{X}\times\mathcal{A}\times\mathcal{X}$ sẽ được cho bởi xác suất chuyển từ trạng thái $x$ đến một trạng thái $y$ nào đó mà hành động $a$ được thực hiện từ trạng thái $x$:
+$$\mathcal{P}(x,a,y)=\mathcal{P}_0(\{y\}\times|x,a).$$
+Ngoài $\mathcal{P}$, $\mathcal{P}_0$ cũng làm tăng hàm phần thưởng $r:\mathcal{X}\times\mathcal{A}\rightarrow\mathbb{R}$, là phần thưởng khi ta ở trạng thái $x$ thực hiện hành động $a$: nếu $(Y_{(x,a)},R_{x,a})\sim\mathcal{P}_0(.|x,a)$ thì:
+$$r(x,a)=\mathbb{E}[R_{(x,a)}].$$
+Chúng ta giả sử các phần thưởng bị chặn bởi $\mathcal{R} > 0$: với mọi cặp $(x,a) \in \mathcal{X}\times\mathcal{A}, |R_{(x,a)}|\leq\mathcal{R}$. Nếu hàm phần thưởng bị chặn bởi $\mathcal{R}$ thì $||r||_\infty = \text{sup}_{(x,a)\in\mathcal{X}\times\mathcal{A}}|r(x,a)|\leq\mathcal{R}$. Một quá trình quyết định Markov được gọi là hữu hạn nếu cả hai tập $\mathcal{X}$ và $\mathcal{A}$ là hữu hạn.\\
+Quá trình quyết định Markov là một công cụ để mô hình hóa các vấn đề ra quyết định khi người ra quyết định tương tác với hệ thống theo một cách tuần tự. Cho quá trình quyết định Markov $\mathcal{M}$ như sau: cho $t\in\mathbb{N}$ là thời điểm hiện tại (hoặc trạng thái hiện tại), gọi $X_t\in\mathcal{X}$ và $A_t\in\mathcal{A}$ là một trạng thái trong hệ thống và hành động được chọn tại thời điểm $t$. Mỗi hành động được chọn là một quá trình biến đổi:
+$$(X_{t+1},R_{t+1})\sim\mathcal{P}_0(\cdotp|X_t,A_t).$$
+Đặc biệt, $X_{t+1}$ là ngẫu nhiên và $\mathbb{P}(X_{t+1}=y|X_t=x,A_t=a)=\mathcal{P}(x,a,y)$ với mọi $x,y\in\mathcal{X}, a\in\mathcal{A}$. Hơn nữa, $\mathbb{E}[R_{t+1}|X_t,A_t]=r(X_t,A_t)$. Người đưa ra quyết định sẽ xem trạng thái tiếp theo $\mathcal{X}_{t+1}$ và phần thưởng $R_{t+1}$ để chọn hành động $A_{t+1}\in\mathcal{A}$ và quá trình đó được lặp đi lặp lại. Mục tiêu là tìm ra cách để lựa chọn hành động sao cho cực đại tổng khoản thưởng chiết khấu.\\
+
+Người đưa ra quyết định có thể chọn hành động ở bất cứ trạng thái nào dựa trên lịch sử quan sát. Cứ mỗi hành động được chọn được gọi là một hành vi. Hành vi quyết định và tập các trạng thái bắt đầu $X_0$ là một trạng thái hành động phần thưởng ngẫu nhiên $((X_t,A_t,R_{t+1});t\geq 0)$, $A_t$ là hành động được quy định bởi các hành vi dựa trên lịch sử $X_0,A_0,R_1,...,X_{t-1},A_{t-1},R_t,X_t.$. Lợi nhuận của một hành vi được định nghĩa dựa trên tổng chiết khấu của phần thưởng:
+$$\mathcal{R}=\displaystyle\sum_{t=0}^{\infty}{\gamma^tR_{t+1}}.$$
+Nếu $\gamma < 1$ thì phần thưởng ở tương lai sẽ nhỏ hơn phần thưởng ở trạng thái ban đầu. Một quá trình quyết định Markov khi mà lợi nhuận được định nghĩa theo công thức thì được gọi là chiết khấu phần thưởng MDP. Khi $\gamma =1$ thì quá trình quyết định Markov được gọi là không chiết khấu.\\
+Mục tiêu của người ra quyết định lựa chọn hành vi để cực đại kỳ vọng lợi nhuận, khi nào quá trình bắt đầu.\\
+Ví dụ 1 (Kiểm soát hàng tồn kho): Xét một vấn đề hàng ngày về kiểm soát hàng tồn kho: mỗi tối, quản lý phải đưa ra quyết định về số lượng hàng được đặt trong ngày hôm sau. Sáng hôm sau, lượng hàng đã được đặt sẽ chuyển vào kho. Trong ngày, một số nhu cầu ngẫu nhiên được thực hiện, nhu cầu này là độc lập. Mục tiêu là cực đại giá trị kỳ vọng lợi nhuận trong tương lai. \\
+Các khoản phải trả tại thời điểm $t$ được xác định: Chi phí mua hàng $A_t$ là $K\mathbb{I}_{\{A_t>0\}} + cA_t$. Có một chi phí cố định $K$ khác không và mỗi mặt hàng được đặt có giá cố định $c$. $K, c > 0$. Ngoài ra, chi phí duy trì kho của kích thước $x > 0$. Ở trường hợp đơn giản nhất, chi phí này tỷ lệ thuận với kích thước của kho với hệ số $h>0$. Cuối cùng, khi bán được $z$ đơn vị sản phẩm thì thu được $pz$, $p>h>0$.\\
+Vấn đề này có thể biểu diễn thành một quá trình quyết định Markov: Gọi $X_t$ là trạng thái tại ngày $t\geq 0$ là kích thước của kho tối hôm đó. $\mathcal{X}=\{0,1,...,M\}$ với $M\in\mathbb{N}$ là kích thước tối đa của kho. Hành động $A_T$ số hàng được đặt tại tối hôm $t$. $\mathcal{A} = \{0,1,...,M\}$ vì số lượng hàng được đặt không vượt quá kích thước của kho. Cho $X_t$ và $A_t$, khoảng trống của kho trong ngày hôm sau là:
+\begin{equation} \label{eq2}
+X_{t+1}=((X_t+A_t)\wedge M-D_{t+1})^+,
+\end{equation}
+trong đó $a\wedge b$ là số nhỏ nhất trong hai số $a, b, (a)^+=a\vee 0 =$max$(a,0)$ và $D_{t+1} \in \mathbb{N}$ là nhu cầu của ngày thứ $t+1$. Theo giả thiết, $(D_t;t>0)$ là một dãy phân phối độc lập và đươc phân loại các biến ngẫu nhiên có giá trị nguyên. Doanh thu ở ngày $t+1$ là :
+\begin{equation} \label{eq3}
+\begin{split}
+R_{t+1} = & -K\mathbb{I}_{\{A_t>0\}}-c((X_t+A_t)\wedge M-X_t)^+ \\
+& -hX_t + p((X_t+A_t)\wedge M-X_{t+1})^+.
+\end{split}
+\end{equation}
+Công thức \ref{eq2} - \ref{eq3} có thể viết lại dưới dạng:
+\begin{equation} \label{eq4}
+(X_{t+1},R_{t+1})=f(X_t,A_t,D_{t+1}),
+\end{equation}
+
+với một hàm lựa chọn $f$. Khi đó $\mathcal{P}_0$ được xác định:
+$$\mathcal{P}_0(U|x,a)=\mathbb{P}(f(x,a,D)\in U) = \displaystyle\sum^\infty_{d=0}{\mathbb{I}_{\{f(x,a,d)\in U\}p_D(d)}}.$$
+
+$p_D(d)$ là xác suất hàm khối lượng ngẫu nhiên yêu cầu và $D\sim p_D(d)$. Điều này hoàn thành định nghĩa của quá trình quyết định Markov trong bài toán tối ưu về hàng tồn kho. \\
+
+Kiểm soát hàng tồn kho chỉ là một trong nhiều vấn đề nghiên cứu dẫn đến quá trình quyết định Markov. Các vấn đề khác bao gồm tối ưu hệ thống giao thông vận tải, sắp xếp lịch hay sản xuất. MDPs phát sinh tự nhiên trong nhiều vẫn đề về kỹ thuật như kiểm soát tối ưu các hệ thông hóa học, điện tử, cơ khí. Khá nhiều vấn đề lý thuyết thông tin có thể cũng được trình bày dưới dạng MDP (ví dụ: mã hóa tối ưu, tối ưu hóa phân bổ kênh hoặc cảm biến mạng). Một vấn đề quan trọng khác là vấn đề tài chính.Bao gồm, quản lý danh mục đầu tư tối ưu và giá cả tùy chọn.\\
+Trong trường hợp kiểm soát hàng tồn kho, MDP đã được xác định một cách thuận tiện bởi một hàm chuyển tiếp f (cf., \ref{eq4}). Trong thực tế, các chức năng chuyển tiếp cũng mạnh mẽ như lõi chuyển: bất kỳ MDP nào tạo ra một số chức năng chuyển tiếp f và bất kỳ chức năng chuyển tiếp nào làm tăng MDP.\\
+Trong một số vấn đề, không phải tất cả các hành động đều có ý nghĩa ở tất cả các trạng thái. Ví dụ: đặt hàng nhiều mặt hàng hơn so với những gì có chỗ trong kiểm kê không có ý nghĩa nhiều. Tuy nhiên, các hành động vô nghĩa (hoặc các hành động bị cấm) luôn có thể được sửa lại thành hành động khác, giống như nó đã được thực hiện ở trên. Trong một số trường hợp, điều này là bất thường. Sau đó, có thể tốt hơn, ta bổ sung các hành động được chấp nhận cho mỗi trạng thái.
+Trong vài trường hợp, một số trạng thái không thể chuyển sang trạng thái khác được hay còn được gọi là trạng thái hấp thụ. MDP có trạng thái hấp thụ thì thường xét phần thưởng không chiết khấu hay $\gamma =1$\\
+
+Ví dụ 2: Một người chơi một trò chơi, tỷ lệ đặt cược $A_t \in [0,1]$ trên tổng số vốn $X_t \geq 0$. Nếu thắng sẽ nhận lại tiền cọc với xác suất $p\in [0,1]$, nếu thua thì sẽ mất tiền cọc với xác suất là $1-p$. Tài sản của người đó được tính:
+$$X_{t+1}=(1+S_{t+1}A_t)X_t.$$
+$(S_t;t\geq 1)$ là một biến ngẫu nhiên độc lập nhận giá trị $\{-1,+1\}$ với $\mathbb{P}(S_{t+1}=1)=p$. Mục tiêu là cực đại xác suất mà tài sản của người đó đạt giá trị $w^* >0$. Giả sử, ban đầu số tài sản nằm trong khoảng $[0,w^*]$. Bài toán này có thể cọi là một quá trình quyết định Markov với không gian các trạng thái $\mathcal{X}=[0,w^*]$ và tập các hành động $\mathcal{A}=[0,1].$ Ta định nghĩa:
+\begin{equation} \label{eq5}
+X_{t+1}=(1+S_{t+1}A_t)X_t\wedge w^*,
+\end{equation}
+trong đó $0\leq X_t \leq w^*$ và $w^*$ là trạng thái kết thúc: $X_{t_1}=X_t$ nếu $X_t=w^*$. Phần thưởng bằng 0 nếu $X_{t+1} < w^*$ và bằng 1 nếu là lần đầu tiên đạt trạng thái $w^*$:
+$$R_{t+1} = \begin{cases} 1, & X_t < w^* \mbox{ và } X_{t+1} = w^* \\ 
+0, & \mbox{ còn lại } \end{cases}$$
+\subsection{Hàm giá trị}
+Một các dễ thấy để tìm hành vi tối ưu trong một số quá trình quyết định Markov là liệt kê tất cả các hành vi và chỉ ra hành vi cho giá trị cao nhất với môĩ trạng thái ban đầu. Trên thực tế, các hành vi thuường rất nhiều , và phương pháp này tỏ ra không khả thi. Một các tiếp cận tốt hơn là dựa trên tính toán các hàm giá trị. Trong cách tiếp cận này, người ta tính toán cái gọi là hàm giá trị tối ưu, để rồi sau đó xác định một hành vi tối ưu nhất một cách dễ dàng.
+Gái trị tối ưu $V*(x)$, của trạng thái $x \in X$ cho giá trị kỳ vọng cao nhất có thể đạt được khi quá trình bắt đầu từ trạng thái $x$. Hàm $V* : X \rightarrow \mathbb{R}$ được gọi là hàm giá trị tối ưu. Một hành vi được gọi là tối ưu nếu nó đạt  những giá trị tối ưu trong tất cả các trạng thái.//
+DETERMINISTIC STATIONARY POLICIES thể hiện tập các hành vi đặc biệt…
+Thông thuường, một chiến lược ngẫu nhiên dừng (stochastic stationary policy) $\pi$ ánh xạ các trạng thái để phân phối không gian các hành động. Khi đề cập đến 1 chiến lược $\pi$, chúng ta kí hiệu $\pi (a|x)$ để biểu diễn xác suất để hành động $a$ được chọn bởi $\pi$ ở trạng thái $x$. Chú ý rằng nếu một chiến lược trong quá trình quyết định Markov thỏa mãn 
+$$A_t  \sim \pi (\cdotp | X_t),  t \in \mathbb{N},$$ thì quá trình trạng thái $(X_t; t \geq 0)$ là một xích Markov. Chúng ta sử dụng $\Pi_stat$ để ký hiệu cho tập tất cả các chiến lược dừng.  Một chiến lược và 1 quá trinh quyết định Markov thì được gọi là Quá trình Markov có phần thưởng (Markov reward processes): Một MRP được xác định bởi cặp $\mathcal{M} = (\mathcal{X},\mathcal{P}_0)$, trong đó $\mathcal{P}_0$ là một xác suất tính dựa vào $\mathcal{X} x \mathbb{R}$ với mỗi trạng thái. Một MRP $\mathcal{M}$ làm tăm quá trình ngẫu nhiên $((X_t,R_{t+1});t\geq 0)$, tại $(X_{t+1},R_{t+1}) \sim \mathcal(P)_0(\cdotp | X_t)$. Cho một chiến lược dừng $\pi$ và một MDP $\mathcal{M} = (\mathcal{X},\mathcal{A},\mathcal{P}_0)$, lõi chuyển của MRP $(\mathcal{X},\mathcal{P}^\pi_0)$ gây ra bởi $\pi$ và $\mathcal{M}$ được định nghĩa bằng $\mathcal(P)^\pi_0(\cdotp|x) = \sum_{a \in \mathcal{A}} \pi(a|x)\mathcal{P}_0(\cdotp|x,a)$. Một MRP được gọi là hữu hạn nếu không gian các trạng thái của nó là hữu hạn.//
+Chúng ta định nghĩa hàm giá trị dựa trên chiến lược dừng. Hàm giá trị $V^\pi:\mathcal{X}\rightarrow\mathbb{R}$ dựa trên $\pi$ được tính bởi 
+
+\begin{equation} \label{eq7}
+V^\pi(x)=\mathbb{E}\bigg[\displaystyle\sum^\infty_{t=0}{\gamma^tR_{t+1}|X_0=x}\bigg], x\in\mathcal{X}
+\end{equation}
+
+
+như chúng ta đã biết rằng quá trình $(R_t ; t\geq 1)$ là “một phần của phần thưởng” của quá trình $((X_t,A_t,R_{t+t});t\geq 0)$ đạt được khi tuân theo chiến lược $\pi$ và $X_0$ được chọn ngẫu nhiên sao cho $\mathbb{P}(X_0=x)>0$ với mọi trạng thái $x$. Điều kiện thứ hai khiến kỳ vọng có điều kiện \ref{eq7} được xác định rõ ràng với mỗi trạng thái. Nếu trạng thái ban đầu phân phối thỏa mãn điều kiện này, nó không có ảnh hưởng đến định nghĩa của các giá trị.\\
+Hàm giá trị dựa trên một MRP được định nghĩa tưởng tự và được ký hiệu bởi $V$:
+
+$$V(x)=\mathbb{E}\bigg[\displaystyle\sum^\infty_{t=0}{\gamma^tR_{t+1}|X_0=x}\bigg], x\in\mathcal{X}$$
+
+Nó rất hữu dụng trong việc định nghĩa hàm hành động-giá trị, $Q^\pi:\mathcal{X}x\mathcal{A}\rightarrow\mathbb{R}$, dựa trên một chiến lược $\pi\in\Pi_{stat}$ trong một MDP: Giả sử rằng hành động đầu tiên $A_0$ được lựa chọn ngẫu nhiên sao cho $\mathbb{P}(A_0=a)>0$ với mọi $a\in\mathcal{A}$, trọng khi các chuỗi con các trạng thái của quá trình quyết các hành động được chọn bởi chiến lượng $\pi$. Gọi $((X_t,A_t,R_{t+1});t\geq0)$ là quá trình ngẫu nhiên kết quả, $X_0$ được định nghĩa trong $V_\pi$. Khi đó
+
+$$Q^\pi(x,a) =\mathbb{E}\bigg[\displaystyle\sum^\infty_{t=0}{\gamma^tR_{t+1}|X_0=x,A_0=a}\bigg], x\in\mathcal{X}, a\in\mathcal{A}.$$
+
+Tương tự như $V*(x)$, hành động – giá trị tối ưu $Q*(x,a)$ với cặp trạng thái – hành động $(x,a)$ được định nghĩa là cực đại của kỳ vọng lợi nhuận với ràng buộc rằng quá trình bắt đầu ở trạng thái $x$, và hành động đầu tiên là $a$. $Q*:\mathcal(X)x\mathcal{A}\rightarrow\mathbb{R}$ được gọi là hàm hành động – giá trị tối ưu.//
+Hàm giá trị tối ưu và hàm hành động – giá trị tối ưu có liên hệ với nhau bởi các đẳng thức sau:
+
+$$V^*(x) = \displaystyle\sup_{a\in\mathcal{A}} Q^*(x,a),  x\in\mathcal{X}$$
+$$Q^*(x,a) = r(x,a) + \gamma \displaystyle\sum_{y\in\mathcal{X}}{\mathcal{P}(x,a,y)V^*(y)}, x\in\mathcal{X}, a\in\mathcal{A}.$$
+
+Trong lớp các MDP được để cập đến ở đây, một chiến lược dừng tối ưu luôn tồn tại:
+
+$$V^*(x) = \displaystyle\sup_{\pi\in\Pi_{stat}} V^\pi(x),  x\in\mathcal{X}$$
+
+Thật vậy, mọi chiến lược $\pi\in\Pi_{stat}$ thỏa mãn đẳng thức
+
+\begin{equation} \label{eq8}
+\sum_{a\in\mathcal{A}}{\pi (a|x)Q^*(x,a)} = V^*(x)
+\end{equation}
+
+đồng thời với mọi trạng thái $x \in \mathcal{X}$ đều là tối ưu. Chú ý rằng nếu \ref{eq8} được thỏa mãn, $\pi(\cdotp|x)$ phải tạp tring trong tập các hành động mà cucuj dại $Q*(x,\cdotp)$. Thông thường, cho trước một vài hàm hành động – giá trị, $Q:\mathcal{X}x\mathcal{A}\rightarrow\mathbb{R}$, một hành động được cực đại $Q(x,\cdotp)$ với một vài trạng thái $x$ được gọi là tham lam tương ứng vơi $Q$ ở trạng thái $x$. Một chiến lược mà chỉ chọn các hành động tham lam tuân theo $Q$ với tất cả cá trạng thái thì được gọi là dựa theo $Q$. \\
+Do đó, một chiến lược tham lam đối với $Q*$ là tối ưu, tức là, kiến thức về $Q*$ là đủ để tìm ra một chiến lược tối ưu. Tương tự, nếu biết $V* ,r$ và $\mathcal{P}$ cũng đủ để tìm được tối ưu. \\
+Câu hỏi tiếp theo là làm thế nào để tìm được $V*$ hoặc $Q*$. Chúng ta hãy băt đầu với một câu hỏi đơn giản hơn là làm thế nào để tìm được hàm giá trị của một chiến lược: \\
+Tiên đề 1 (Công thức Bellman cho chiến lược tất định): Đổi một MDP $\mathcal{M} = (\mathcal{X},\mathcal{A},\mathcal{P}_0)$, một hệ số chiết khấu $\gamma$ và chiến lược tất định $\pi \in \Pi_{stat}$. Gọi $r$ là hàm phần thưởng tức thời của $\mathcal{M}$. $V^\pi$ thỏa mãn
+
+\begin{equation} \label{eq9}
+V^\pi(x) = r(x,\pi(x)) + \gamma \displaystyle\sum_{y\in\mathcal{X}}{\mathcal{P}(x,\pi(x),y)V^\pi(y)}, x\in\mathcal{X}.
+\end{equation}
+
+Hệ thống các đẳng thức này được gọi là công thức Bellman cho $V^\pi$. Định nghĩa toán tử Bellman dựa trên $\pi$, $T^\pi : \mathbb{R}^{\mathcal{X}}\rightarrow\mathbb{R}^{\mathcal{X}}$ bằng
+
+$$(T^\pi V)(x) = r(x,\pi(x)) + \gamma \displaystyle\sum_{y\in\mathcal{X}}{\mathcal{P}(x,\pi(x),y)V(y)}, x\in\mathcal{X}.$$
+
+Đẳng thức \ref{eq9} có thể viết lại một cách ngắn gọn hơn dưới dạng
+
+\begin{equation} \label{eq10}
+T^\pi V^\pi =V^\pi
+\end{equation}
+
+Chú ý rằng đây là hệ phương trình tuyến tính $V^\pi$ và $T^\pi$ là một toán tử tuyến tính affine. Nếu $0<\gamma<1$ thì $T^\pi$ là một chuẩn max bị chặn và phương tình điểm cố định $T^\pi V = V$ có duy nhất một phương án.//
+Khi không gian trạng thái $\mathcal{X}$ là hữu hạn thì ta nói có $D$ trạng thái $\mathbb{R}^\mathcal{X}$ có thể được xác định với không gian Euclide D-chiều và $V\in\mathbb{R}^\mathcal{X}$ có thể được hiểu là một vector D-chiều: $V\in\mathbb{R}^D$. Với các định nghĩa này, $T^\pi V$ có thể được viết thành $r^\pi+\gamma P^\pi V$ với một vector $r^\pi\in\mathbb{R}^D$ và ma trận $P^\pi\in\mathbb{R}^{DxD}$. Trong trường hợp này, \ref{eq10} có thể viết dưới dạng
+
+
+\begin{equation} \label{eq11}
+r^\pi+\gamma P^\pi V^\pi=V^\pi
+\end{equation}
+
+Định lý trên cũng đúng với các MRP, với toán tử Bellman $T:\mathbb{R}^\mathcal{X}\rightarrow\mathbb{R}^\mathcal{X}$ được định nghĩa bởi
+
+$$(TV)(x) = r(x) + \gamma \displaystyle\sum_{y\in\mathcal{X}}{\mathcal{P}(x,y)V(y)}, x\in\mathcal{X}.$$
+
+Hàm giá trị tối ưu được biết đến để thỏa bãn một số phương trình điểm xác định:
+
+Tiên đề 2 (Phương trình tối ưu Bellman): Hàm giá trị tối ưu thỏa mãn phương trình điểm cố định
+
+\begin{equation} \label{eq12}
+V^*(x)=\sup_{a\in\mathcal{A}}\bigg\{ r(x,a) + \gamma \displaystyle\sum_{y\in\mathcal{X}}{\mathcal{P}(x,a,y)V^*(y)}\bigg\} , x\in\mathcal{X}.
+\end{equation}
+
+Đinhj nghĩa toán tử tối ưu Bellman, $T*:\mathbb{R}^\mathcal{X}\rightarrow\mathbb{R}^\mathcal{X}$, bởi
+
+\begin{equation} \label{eq13}
+(T^*V)(x)=\sup_{a\in\mathcal{A}}\bigg\{ r(x,a) + \gamma \displaystyle\sum_{y\in\mathcal{X}}{\mathcal{P}(x,a,y)V(y)}\bigg\} , x\in\mathcal{X}.
+\end{equation}
+
+Chú ý rằng đây là toán tử phi tuyến do sự có mặt của sup. Với $T*$, phương trình \ref{eq12} có thể viết lại gọn hơn là 
+
+$$T*V*=V*$$
+
+Nếu $0<\gamma<1$, thì $T*$ là một chuẩn max bị chặn, và phương trình điểm cố định $T*V=V$ có một phương án duy nhất.
+Chúng ta sẽ viết biểu thức như là $(T^\pi V)(x)$ thành $T^\pi V(x)$, và ngầm hiểu rằng ừng dụng của toán tử $T^\pi$ được ưu tiên áp dụng cho toán tử đánh giá điểm, “$(x)$”.//
+Các hàm hành động – giá trị dựa trên một chiến lược (hoăc một MRP) và hàm hành động –giá trị tối ưu cũng thỏa mãn các phương trình điểm cố định như công thức trước đó:
+
+Tiên đề 3 (Các toán tử Bellman và Các đẳng thức điẻm cố định cho Hàm Hành động – Giá trị): Ta đinh nghĩa $T^\pi: \mathbb{R}^{\mathcal{X}x\mathcal{A}}\rightarrow\mathbb{R}^{\mathcal{X}x\mathcal{A}}$ và $T*: \mathbb{R}^{\mathcal{X}x\mathcal{A}}\rightarrow\mathbb{R}^{\mathcal{X}x\mathcal{A}}$ như sau:
+
+\begin{equation} \label{eq14}
+T^\pi Q(x,a)= r(x,a) + \gamma \sum_{y\in\mathcal{X}}\mathcal{P}(x,a,y)Q(y,\pi(y)), (x,a)\in\mathcal{X}\times\mathcal{A}.
+\end{equation}
+
+\begin{equation} \label{eq15}
+T^\pi Q(x,a)= r(x,a) + \gamma \displaystyle\sum_{y\in\mathcal{X}}\mathcal{P}(x,a,y)\sup_{a'\in\mathcal{A}}Q(y,a'), (x,a)\in\mathcal{X}\times\mathcal{A}.
+\end{equation}
+
+Chú ý rằng $T^\pi$ là tuyến tính affine, $T*$ là phi tuyến. Toán tử $T^\pi$ và $T*$ là các chuẩn max bị chặn. Hơn nữa, hàm hành động – giá trị của $\pi$, $Q^\pi$, thoản mãn $T^\pi Q^\pi=Q^\pi$ và $Q^\pi$ là phương án duy nhất cho phương trình điểm cố định. Tương tự, hàm hành động – giá trị tối ưu, $Q*$, thỏa mãn $Q*T*=Q*$ và $Q*$ là phương án duy nhất cho phương trình điểm cố định.
+
+\subsection{Quy hoạch động để giải MDPs}
+
 \section{Thuật toán Q-learning}
 \section{Thuật toán Policy-learning}
 Viết chút vào đây...
