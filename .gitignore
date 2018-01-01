@@ -4,4 +4,6 @@
 # But not these files...
 !.gitignore
 !*.tex
-!*.png
+!images/*.png
+!atari/*.html
+!atari/*.js
