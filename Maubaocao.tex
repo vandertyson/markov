@@ -242,12 +242,12 @@ Trong đó $Q:S \times A \rightarrow \mathbb{R}$ là hàm đánh giá giá trị
 \end{enumerate}
 $\textbf{Xét ví dụ minh họa}$ cho thuật toán Q-learning sau đây: Giả sử tác tử được đặt trong môi trường là một tầng nhà gồm có 5 phòng (đánh số từ 0 tới 4) với các cửa ra vào được bố trí như hình dưới. Không gian bên ngoài tầng nhà được đánh số 5. Từ phòng 1 và phòng 4 có cửa dẫn ra ngoài tầng nhà. Nhiệm vụ của tác tử là tìm cách thoát ra khỏi tầng nhà từ bất kỳ phòng nào, tức là chuyển tới phòng số 5 từ 1 trong các phòng còn lại một cách nhanh nhất.\\
 \\
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{1.png}
+%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{1.png}
 Có thể biểu diễn sơ đồ tòa nhà trên dưới dạng đồ thị có hướng như hình dưới. Mỗi đỉnh của đồ thị biểu diễn một phòng của tầng nhà (hay một trạng thái của tác tử). Nếu có cửa trực tiếp từ phòng này tới phòng kia thì ta có 1 cạnh nối giữa 2 đỉnh tương ứng (biểu diễn hành động của tác tử).\\
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{2.png}
+%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{2.png}
 \\
 Trọng số của cạnh là phần thưởng cho tác tử khi di chuyển giữa từ phòng này tới phòng kia. Do mục tiêu là thoát khỏi tầng nhà nên hành động trực tiếp thoát ra khỏi tòa nhà được thưởng cao (chẳng hạn được 100 điểm), trong khi những hành động khác không được thưởng (0 điểm) hoặc thậm chí trừ điểm (-1 điểm). Chẳng hạn từ phòng 1 có cửa trực tiếp tới phòng 5 nên cạnh nối đỉnh 1 tới đỉnh 5 có trọng số 100. Từ phòng 1 tới phòng 3 vẫn không thoát được ra ngoài nên cạnh nối từ đỉnh 1 tới đỉnh 3 có trọng số 0, từ phòng 1 không tới trực tiếp được phòng 2 nên cạnh nối từ đỉnh 1 tới đỉnh 2 có trọng số -1. Ta giả sử tác tử bắt đầu từ phòng 2 và cần đi tới phòng 5.\\
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{3.png}
+%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{3.png}
 \\
 Trong ví dụ này, môi trường là tất định, hệ số học tối ưu $\alpha$ 1. Công thức của thuật toán Q-learning được rút gọn thành:
 \begin{center}
@@ -313,7 +313,7 @@ $$Q=\begin{bmatrix}
 0&80&0&0&80&100\\
 \end{bmatrix}$$\\
 Từ ma trận trên ta thu được đồ thị mới:\\
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{5.png}
+%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{5.png}
 \\
 Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái 2 tới trạng thái 5 tối ưu như sau:
 \begin{enumerate}
