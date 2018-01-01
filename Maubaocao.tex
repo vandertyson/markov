@@ -108,8 +108,11 @@ $$R_{t+1} = \begin{cases} 1, & X_t < w^* \mbox{ và } X_{t+1} = w^* \\
 0, & \mbox{ còn lại } \end{cases}$$
 \subsection{Hàm giá trị}
 Một các dễ thấy để tìm hành vi tối ưu trong một số quá trình quyết định Markov là liệt kê tất cả các hành vi và chỉ ra hành vi cho giá trị cao nhất với môĩ trạng thái ban đầu. Trên thực tế, các hành vi thuường rất nhiều , và phương pháp này tỏ ra không khả thi. Một các tiếp cận tốt hơn là dựa trên tính toán các hàm giá trị. Trong cách tiếp cận này, người ta tính toán cái gọi là hàm giá trị tối ưu, để rồi sau đó xác định một hành vi tối ưu nhất một cách dễ dàng.
-Gái trị tối ưu $V*(x)$, của trạng thái $x \in X$ cho giá trị kỳ vọng cao nhất có thể đạt được khi quá trình bắt đầu từ trạng thái $x$. Hàm $V* : X \rightarrow \mathbb{R}$ được gọi là hàm giá trị tối ưu. Một hành vi được gọi là tối ưu nếu nó đạt  những giá trị tối ưu trong tất cả các trạng thái.//
-DETERMINISTIC STATIONARY POLICIES thể hiện tập các hành vi đặc biệt…
+Gái trị tối ưu $V*(x)$, của trạng thái $x \in X$ cho giá trị kỳ vọng cao nhất có thể đạt được khi quá trình bắt đầu từ trạng thái $x$. Hàm $V* : X \rightarrow \mathbb{R}$ được gọi là hàm giá trị tối ưu. Một hành vi được gọi là tối ưu nếu nó đạt  những giá trị tối ưu trong tất cả các trạng thái.\\
+Chiến lược dừng tất định (Deterministic stationary policies) thể hiện tập các hành vi đặc biệt, đóng một vai trò quan trọng trong lý thuyết MDP. Chúng được chỉ định bởi một số ánh xạ $\pi$ ($\pi : \mathcal{X}\rightarrow\mathcal{A}$). Tuân theo chiến lược $\pi$ tức là tại mọi thời điểm $t \geq 0$ thì hành động $A_t$ được chọn bằng cách:
+\begin{equation} \label{eq6}
+A_t = \pi (X_t)
+\end{equation}
 Thông thuường, một chiến lược ngẫu nhiên dừng (stochastic stationary policy) $\pi$ ánh xạ các trạng thái để phân phối không gian các hành động. Khi đề cập đến 1 chiến lược $\pi$, chúng ta kí hiệu $\pi (a|x)$ để biểu diễn xác suất để hành động $a$ được chọn bởi $\pi$ ở trạng thái $x$. Chú ý rằng nếu một chiến lược trong quá trình quyết định Markov thỏa mãn 
 $$A_t  \sim \pi (\cdotp | X_t),  t \in \mathbb{N},$$ thì quá trình trạng thái $(X_t; t \geq 0)$ là một xích Markov. Chúng ta sử dụng $\Pi_stat$ để ký hiệu cho tập tất cả các chiến lược dừng.  Một chiến lược và 1 quá trinh quyết định Markov thì được gọi là Quá trình Markov có phần thưởng (Markov reward processes): Một MRP được xác định bởi cặp $\mathcal{M} = (\mathcal{X},\mathcal{P}_0)$, trong đó $\mathcal{P}_0$ là một xác suất tính dựa vào $\mathcal{X} x \mathbb{R}$ với mỗi trạng thái. Một MRP $\mathcal{M}$ làm tăm quá trình ngẫu nhiên $((X_t,R_{t+1});t\geq 0)$, tại $(X_{t+1},R_{t+1}) \sim \mathcal(P)_0(\cdotp | X_t)$. Cho một chiến lược dừng $\pi$ và một MDP $\mathcal{M} = (\mathcal{X},\mathcal{A},\mathcal{P}_0)$, lõi chuyển của MRP $(\mathcal{X},\mathcal{P}^\pi_0)$ gây ra bởi $\pi$ và $\mathcal{M}$ được định nghĩa bằng $\mathcal(P)^\pi_0(\cdotp|x) = \sum_{a \in \mathcal{A}} \pi(a|x)\mathcal{P}_0(\cdotp|x,a)$. Một MRP được gọi là hữu hạn nếu không gian các trạng thái của nó là hữu hạn.//
 Chúng ta định nghĩa hàm giá trị dựa trên chiến lược dừng. Hàm giá trị $V^\pi:\mathcal{X}\rightarrow\mathbb{R}$ dựa trên $\pi$ được tính bởi 
@@ -242,12 +245,12 @@ Trong đó $Q:S \times A \rightarrow \mathbb{R}$ là hàm đánh giá giá trị
 \end{enumerate}
 $\textbf{Xét ví dụ minh họa}$ cho thuật toán Q-learning sau đây: Giả sử tác tử được đặt trong môi trường là một tầng nhà gồm có 5 phòng (đánh số từ 0 tới 4) với các cửa ra vào được bố trí như hình dưới. Không gian bên ngoài tầng nhà được đánh số 5. Từ phòng 1 và phòng 4 có cửa dẫn ra ngoài tầng nhà. Nhiệm vụ của tác tử là tìm cách thoát ra khỏi tầng nhà từ bất kỳ phòng nào, tức là chuyển tới phòng số 5 từ 1 trong các phòng còn lại một cách nhanh nhất.\\
 \\
-%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{1.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{1.png}
 Có thể biểu diễn sơ đồ tòa nhà trên dưới dạng đồ thị có hướng như hình dưới. Mỗi đỉnh của đồ thị biểu diễn một phòng của tầng nhà (hay một trạng thái của tác tử). Nếu có cửa trực tiếp từ phòng này tới phòng kia thì ta có 1 cạnh nối giữa 2 đỉnh tương ứng (biểu diễn hành động của tác tử).\\
-%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{2.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{2.png}
 \\
 Trọng số của cạnh là phần thưởng cho tác tử khi di chuyển giữa từ phòng này tới phòng kia. Do mục tiêu là thoát khỏi tầng nhà nên hành động trực tiếp thoát ra khỏi tòa nhà được thưởng cao (chẳng hạn được 100 điểm), trong khi những hành động khác không được thưởng (0 điểm) hoặc thậm chí trừ điểm (-1 điểm). Chẳng hạn từ phòng 1 có cửa trực tiếp tới phòng 5 nên cạnh nối đỉnh 1 tới đỉnh 5 có trọng số 100. Từ phòng 1 tới phòng 3 vẫn không thoát được ra ngoài nên cạnh nối từ đỉnh 1 tới đỉnh 3 có trọng số 0, từ phòng 1 không tới trực tiếp được phòng 2 nên cạnh nối từ đỉnh 1 tới đỉnh 2 có trọng số -1. Ta giả sử tác tử bắt đầu từ phòng 2 và cần đi tới phòng 5.\\
-%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{3.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{3.png}
 \\
 Trong ví dụ này, môi trường là tất định, hệ số học tối ưu $\alpha$ 1. Công thức của thuật toán Q-learning được rút gọn thành:
 \begin{center}
@@ -313,7 +316,7 @@ $$Q=\begin{bmatrix}
 0&80&0&0&80&100\\
 \end{bmatrix}$$\\
 Từ ma trận trên ta thu được đồ thị mới:\\
-%\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{5.png}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{5.png}
 \\
 Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái 2 tới trạng thái 5 tối ưu như sau:
 \begin{enumerate}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.6)  1 JAN 2018 16:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.6)  1 JAN 2018 18:45
 entering extended mode
 **./Maubaocao.tex
 (Maubaocao.tex
@@ -1067,201 +1067,277 @@ Package hyperref Warning: Composite letter `\textdotbelow+i'
 
 Package hyperref Warning: Composite letter `\textdotbelow+a'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textdotbelow' on input line 212.
+(hyperref)                removing `\textdotbelow' on input line 215.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 212.
+(hyperref)                removing `\dj' on input line 215.
 
 
 Package hyperref Warning: Composite letter `\textdotbelow+\ocircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textdotbelow' on input line 212.
+(hyperref)                removing `\textdotbelow' on input line 215.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ocircumflex' on input line 212.
+(hyperref)                removing `\ocircumflex' on input line 215.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\dj' on input line 212.
+(hyperref)                removing `\dj' on input line 215.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 212.
+(hyperref)                removing `\h' on input line 215.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 212.
+(hyperref)                removing `\ecircumflex' on input line 215.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 212.
+(hyperref)                removing `\h' on input line 215.
 
 
 Package hyperref Warning: Composite letter `\textdotbelow+\acircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textdotbelow' on input line 214.
+(hyperref)                removing `\textdotbelow' on input line 217.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 214.
+(hyperref)                removing `\acircumflex' on input line 217.
 
 [12]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 224.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 227.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <14.4> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 224.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 227.
  [13]
-Underfull \hbox (badness 10000) in paragraph at lines 243--253
+
+LaTeX Warning: File `1.png' not found on input line 248.
+
+
+! Package pdftex.def Error: File `1.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.248 ...eight=\textheight,keepaspectratio]{1.png}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for T5+cmtt on input line 248.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\vntex\t5cmtt.fd"
+File: t5cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+
+LaTeX Warning: File `2.png' not found on input line 250.
+
+
+! Package pdftex.def Error: File `2.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.250 ...eight=\textheight,keepaspectratio]{2.png}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `3.png' not found on input line 253.
+
+
+! Package pdftex.def Error: File `3.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.253 ...eight=\textheight,keepaspectratio]{3.png}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--256
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--253
-
+Overfull \hbox (0.12187pt too wide) in paragraph at lines 246--256
+[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--253
-
+Overfull \hbox (0.12187pt too wide) in paragraph at lines 246--256
+[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
+Overfull \hbox (0.12187pt too wide) in paragraph at lines 246--256
+[] 
+ []
+
+[14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 259--261
 
  []
 
-[14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 314--319
+[17] [18]
 
+LaTeX Warning: File `5.png' not found on input line 319.
+
+
+! Package pdftex.def Error: File `5.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.319 ...eight=\textheight,keepaspectratio]{5.png}
+                                                  
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (0.12187pt too wide) in paragraph at lines 317--322
+[] 
  []
 
-[16] [17]
+[19] [20]
 Ch\uhorn \ohorn ng 3.
 
 Package hyperref Warning: Composite letter `\textacute+\UHORN'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 326.
+(hyperref)                removing `\textacute' on input line 329.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\UHORN' on input line 326.
+(hyperref)                removing `\UHORN' on input line 329.
 
 
 Package hyperref Warning: Composite letter `\textdotbelow+u'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textdotbelow' on input line 326.
+(hyperref)                removing `\textdotbelow' on input line 329.
 
 
 Package hyperref Warning: Composite letter `\textdotbelow+\uhorn'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textdotbelow' on input line 326.
+(hyperref)                removing `\textdotbelow' on input line 329.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\uhorn' on input line 326.
+(hyperref)                removing `\uhorn' on input line 329.
 
 
 Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 326.
+(hyperref)                removing `\textacute' on input line 329.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 326.
+(hyperref)                removing `\ecircumflex' on input line 329.
 
-[18
+[21
 
 ]
 Ch\uhorn \ohorn ng 4.
 
 Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 327.
+(hyperref)                removing `\textacute' on input line 330.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 327.
+(hyperref)                removing `\ecircumflex' on input line 330.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 327.
+(hyperref)                removing `\h' on input line 330.
 
-[19
+[22
 
 ]
 Ch\uhorn \ohorn ng 5.
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 328.
+(hyperref)                removing `\h' on input line 331.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ocircumflex' on input line 328.
+(hyperref)                removing `\ocircumflex' on input line 331.
 
 
 Package hyperref Warning: Composite letter `\textacute+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textacute' on input line 328.
+(hyperref)                removing `\textacute' on input line 331.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 328.
+(hyperref)                removing `\ecircumflex' on input line 331.
 
 
 Package hyperref Warning: Composite letter `\textdotbelow+\acircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textdotbelow' on input line 328.
+(hyperref)                removing `\textdotbelow' on input line 331.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\acircumflex' on input line 328.
+(hyperref)                removing `\acircumflex' on input line 331.
 
-[20
+[23
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                \kern 14.09654pt
-(hyperref)                removed on input line 332.
+(hyperref)                removed on input line 335.
 
 
 Package hyperref Warning: Composite letter `\textdotbelow+\ecircumflex'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textdotbelow' on input line 332.
+(hyperref)                removing `\textdotbelow' on input line 335.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\ecircumflex' on input line 332.
+(hyperref)                removing `\ecircumflex' on input line 335.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\h' on input line 332.
+(hyperref)                removing `\h' on input line 335.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 340.
-[21
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 343.
+[24
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 340.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 343.
  (Maubaocao.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 340.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 340.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 343.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 343.
 Package rerunfilecheck Info: File `Maubaocao.out' has not changed.
 (rerunfilecheck)             Checksum: C8C8AB37EAB0B521007562809279D5F9;692.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 340.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 343.
  ) 
 Here is how much of TeX's memory you used:
- 7933 strings out of 493333
- 108161 string characters out of 3139186
- 209225 words of memory out of 3000000
- 11259 multiletter control sequences out of 15000+200000
- 27818 words of font info for 66 fonts, out of 3000000 for 9000
+ 7962 strings out of 493333
+ 108535 string characters out of 3139186
+ 209272 words of memory out of 3000000
+ 11274 multiletter control sequences out of 15000+200000
+ 28129 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,15n,45p,1209b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,15n,45p,1208b,469s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
@@ -1274,10 +1350,11 @@ fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/vntex/vnr/vnbx12.pfb><C:/Program Files
 /MiKTeX 2.9/fonts/type1/vntex/vnr/vnr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/vntex/vnr/vnr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/vntex/vnr/vn
-r8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/vntex/vnr/vnti12.pfb>
-Output written on Maubaocao.pdf (22 pages, 233948 bytes).
+r8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/vntex/vnr/vnti12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/vntex/vnr/vntt12.pfb>
+Output written on Maubaocao.pdf (25 pages, 240878 bytes).
 PDF statistics:
- 263 PDF objects out of 1000 (max. 8388607)
- 61 named destinations out of 1000 (max. 500000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 
