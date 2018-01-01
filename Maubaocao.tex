@@ -1,6 +1,6 @@
 \documentclass[14pt,a4paper,oneside]{report}		%lớp văn bản
 \usepackage{graphicx}
-\graphicspath{ {images/} }
+\graphicspath{{images/}}
 \usepackage[utf8]{vietnam}						%gói ngôn ngữ tiếng Việt
 %--
 \usepackage{amsfonts}
@@ -319,6 +319,7 @@ Từ ma trận trên ta thu được đồ thị mới:\\
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{5.png}
 \\
 Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái 2 tới trạng thái 5 tối ưu như sau:
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{6.png}
 \begin{enumerate}
 \item Từ trạng thái 2, để Q đạt giá trị max thì di chuyển tới trạng thái 3. 
 \item Từ trạng thái 3, để Q đạt max thì di chuyển tới 1 hoặc 4. Chọn di chuyển tới 1.
@@ -326,8 +327,41 @@ Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái
 \item Trạng thái 5 là trạng thái kết thúc. Thuật toán dừng. Ta thu được 1 chiến lược tối ưu: 2-3-1-5
 \end{enumerate}
 
-\chapter{Ứng dụng trong thực tế}
+\chapter{Ứng dụng}
+	Học tăng cường có rất nhiều ứng dụng trong thực tiễn, ví dụ như áp dụng cho hệ thống điều khiển tự động các cánh tay robot công nghiêp, xe và robot tự hành, các hệ thống ứng dụng trí tuệ nhân tạo như "vua cờ vây" Alpha Go, bot game của OpenAI đã đánh bại nhiều game thủ xuất sắc trên thế giới, giải quyết bài toán "Split Delivery Vehicle Routing" trong việc quản lý chuỗi chuyển phát, thậm chí là hệ thống đánh giá các chiến lược đầu tư như Pit.AI. Còn rất nhiều các lĩnh vực khác nữa, đặc biệt là các lĩnh vực có liên quan đến trí tuệ nhân tạo đang sử dụng các phương pháp học trăng cường cho giải pháp của mình.\\
+	Trong giới hạn của báo cáo, nhóm xin trình bày một mô hình ứng dụng học tăng cường, cụ thể là thuật toán Deep Q-learning (mở rộng cho Q-learning đã trình bày ở trên) vào việc tạo ra một bot chơi game thông minh cho trò chơi Atari được mô tả như hình dưới. Trong trò chơi người chơi có nhiêm vụ điều khiển nhân vật (hình tròn đen) di chuyển (đi thẳng và rẽ theo các hướng) sao cho thu được nhiều quả táo chín (hình tròn đỏ) và tránh các quả táo độc (hình tròn xanh) trong môi trường 2D bị giới hạn. Bài toán được mô hình hóa theo phương pháp học tăng cường như sau:
+\begin{itemize}
+\item Tác tử là nhân vật, có khả năng đi thẳng và rẽ hướng. Để đơn giản,ta giả sử tác tử luôn luôn di chuyển, có khả năng thực hiện 5 hành động đó là rẽ theo 5 hướng khác nhau
+\item Trạng thái của quá trình được thể hiện qua giá trị của các cảm biến (9 vecto). Các vecto có tác dụng thu nhận các giá trị khoảng cách của nhân vật tới vị trí của tường, táo xanh, táo đỏ.
+\item Tại mỗi thời điểm, Dựa vào vị trí của tác tử trong không gian để tặng thưởng cho nó. Nếu tác tử ăn được táo đỏ (vị trí của tác tử trùng với vị trí của táo đỏ) thì nó được thưởng 1 điểm, ngược lại nếu ăn phải táo xanh thì bị trừ 1 điểm.
+\item Nhiệm cụ của chúng ta là cần tìm một chiến lược điều khiển tác tử để sao cho khi kết thúc trò chơi (chẳng hạn sau 1 khoảng thời gian nào đó) điểm thưởng thu được là lớn nhất.
+\end{itemize}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{6.png}
+\\
+Theo lý thuyết Q-learning, phần thưởng thu được của trò chơi tại thời điểm t có dạng như sau:
+$$R_t = r_t+\gammarR_{t+1}$$
+Hàm $Q(s,a)$ đại diện cho phần thưởng thu được trong tương lai nếu khi thực hiện hành động a khi ở trạng thái s 
+$$Q(s_t,a_t) = maxR+t+1$$
+Hay 
+$$Q(s_t,a_t) = r + \gamma max_{a'}Q(s',a')$$
+Như vậy nếu như có hàm Q rồi thì việc quyết định hành động cho mỗi trạng thái trở nên đơn giản, ta chọn hành động đem lại giá trị Q lớn nhất sẽ được một chiến lược tối ưu. Có rất nhiều cách để biểu diễn hàm Q này chẳng hạn như ở dạng bảng. Trong bài toán này ta sử dụng mô hình mạng nơ ron truyền thẳng 4 lớp như sau:
+\begin{itemize}
+\item Lớp vào là 1 vecto 27 chiều là giá trị các các biến (thể hiện trạng thái)
+\item 2 lớp ẩn fully-connected, sử dụng hàm kích hoạt là hàm relu
+\item Lớp ra là 1 vecto 5 chiều cho biết các giá trị Q của các hành động tương ứng với trạng thái vào
+\end{itemize}
+Hàm mất mát:
+$$L=1/2[r+max_{a'}Q(s',a')-Q(s,a)$$
+Để huấn luyện mạng ta thực hiện như sau:
+\begin{enumerate}
+\item Truyền trạng thái hiện tại s qua mạng để thu được giá trị Q của tất cả các trạng thái. Tính điểm thưởng hiện tại r.
+\item Thực hiện hành động theo chiến lược chọn hành động cho giá trị Q lớn nhất. Thu được trạng thái s'.
+\item Truyền trạng thái s' qua mạng để thu được hành động a'. Tính lại Q-value cho hành động vừa chọn theo công thức $r+\gamma max_{a'}Q(s',a')$.
+\item Thực hiện lan truyền ngược giá trị Q mới cập nhật weights.
+\end{enumerate}
+
 \chapter{Kết quả}
+	Ở những vòng lặp đầu tác tử di chuyển một cách khó hiểu và hoàn toàn không có khái niệm về táo xanh hay táo đỏ. Sau một thời gian huấn luyện đủ lâu, Q-loss giảm dần, và ta quan sát thấy tác tử di chuyển ngày một thông minh, tránh được những quá táo xanh, tránh được tường và cố gắng thu thập nhiều táo đỏ. Môi trường được biến đổi một cách ngẫu nhiên, chẳng hạn như vị trí xuất hiện táo xanh và táo đỏ bị thay đổi nhưng tác tử vẫn thích nghi tốt.
 \chapter{Tổng kết và bàn luận}
 %============================
 %Tài liệu tham khảo

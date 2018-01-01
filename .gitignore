@@ -5,5 +5,5 @@
 !.gitignore
 !*.tex
 !images/*.png
-!atari/*.html
-!atari/*.js
+!ata/*.html
+!ata/*.js
