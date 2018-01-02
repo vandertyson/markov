@@ -3,6 +3,7 @@
 \graphicspath{{images/}}
 \usepackage[utf8]{vietnam}						%gói ngôn ngữ tiếng Việt
 %--
+\usepackage{fancybox}
 \usepackage{amsfonts}
 \usepackage{latexsym, amsmath, amsxtra, amssymb, amscd, amsthm}	%gói ký tự toán
 \usepackage{indentfirst}
@@ -22,11 +23,48 @@
 %==================================// End dinh nghia cac goi lenh
 %//================================== Begin make title
 \title{{\bf  BÁO CÁO CUỐI KỲ MÔN MÔ HÌNH NGẪU NHIÊN VÀ ỨNG DỤNG}}
-\author{Tác giả: nguoicontraiphonui \hspace*{1cm}Website: http://nguoicontraiphonui.blogspot.com \and \\
-Soạn thảo văn bản \LaTeX{} bởi công cụ MikTeX $\&$ TeXmaker\\\\}
+\author{Phạm Thanh Sơn, Nguyễn Lê Hoàng\\Phạm Hữu Nghị, Vũ Hải Trường}
+
 \date{{\em \today}}
 %==================================// End make  title
 \begin{document}
+
+\thispagestyle{empty}
+\thisfancypage{
+\setlength{\fboxsep}{0pt}
+\fbox}{} 
+\begin{center}
+\begin{large}
+TRƯỜNG ĐẠI HỌC BÁCH KHOA HÀ NỘI
+\end{large} \\
+\begin{large}
+VIỆN TOÁN ỨNG DỤNG VÀ TIN HỌC
+\end{large} \\
+\textbf{--------------------  *  ---------------------}\\[2.5cm]
+\includegraphics[width=3cm,height=3cm,keepaspectratio]{logo.jpg}\\[2.5cm]
+{\fontsize{32pt}{1}\selectfont BÁO CÁO MÔN HỌC}\\
+{\fontsize{20pt}{1}\selectfont CÁC MÔ HÌNH NGẪU NHIÊN VÀO ỨNG DỤNG}\\[2cm]
+{\fontsize{15pt}{1}\selectfont Đề tài: Học tăng cường}\\[1cm]
+\end{center}
+
+\hspace{5cm} Mhóm sinh viên thực hiện : \hspace{4pt}
+\textbf{\parbox[t]{5cm}{    
+Phạm Thanh Sơn\\
+Nguyễn Lê Hoàng\\
+Phạm Hữu Nghị\\
+Vũ Hải Trường
+}}\\[12pt]
+
+\hspace{5cm} Giáo viên hướng dẫn \hspace{24pt} :  \hspace{4pt} \textbf{\parbox[t]{5cm}{    
+Ts. Nguyễn Thị Ngọc Anh
+}}
+
+\vspace{3cm}
+\begin{center}
+{\fontsize{16pt}{1}\selectfont HÀ NỘI}\\
+{\fontsize{16pt}{1}\selectfont \today}
+\end{center}
+
 \pagestyle{fancy}	
 \Large												%co chu
 \maketitle											%make title
@@ -318,7 +356,8 @@ $$Q=\begin{bmatrix}
 Từ ma trận trên ta thu được đồ thị mới:\\
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{5.png}
 \\
-Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái 2 tới trạng thái 5 tối ưu như sau: 
+Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái 2 tới trạng thái 5 tối ưu như sau:
+
 \begin{enumerate}
 \item Từ trạng thái 2, để Q đạt giá trị max thì di chuyển tới trạng thái 3. 
 \item Từ trạng thái 3, để Q đạt max thì di chuyển tới 1 hoặc 4. Chọn di chuyển tới 1.
@@ -362,16 +401,14 @@ $$L=\frac{1}{2}[max_{a'}Q(s',a')-Q(s,a)]^2$$
 
 \chapter{Kết quả}
 	Ở những vòng lặp đầu tác tử di chuyển một cách khó hiểu và hoàn toàn không có khái niệm về táo xanh hay táo đỏ. Sau một thời gian huấn luyện đủ lâu, Q-loss giảm dần, và ta quan sát thấy tác tử di chuyển ngày một thông minh, tránh được những quá táo xanh, tránh được tường và cố gắng thu thập nhiều táo đỏ. Môi trường được biến đổi một cách ngẫu nhiên, chẳng hạn như vị trí xuất hiện táo xanh và táo đỏ bị thay đổi nhưng tác tử vẫn thích nghi tốt.
-\chapter{Tổng kết và bàn luận}
 %============================
 %Tài liệu tham khảo
 \begin{thebibliography}{12}
 \addcontentsline{toc}{chapter}{\quad\  \bf Tài liệu tham khảo}
-\bibitem{1}Họ và tên tác giả, năm, {\it Tên sách} NXB.
-\bibitem{2}Họ và tên tác giả, năm, {\it Tên sách} NXB.
-\bibitem{3}Họ và tên tác giả, năm, {\it Tên sách} NXB.
-\bibitem{4}Họ và tên tác giả, năm, {\it Tên sách} NXB.
-\bibitem{5}Họ và tên tác giả, năm, {\it Tên sách} NXB.
+\bibitem{1}Csaba Szepesvári, 2009, {\it Algorithms for Reinforcement Learning} Morgan and Claypool Publishers
+\bibitem{2}David Silver, {\it Reinforcement Learning}
+\bibitem{3}Richard Sutton, 2014, {\it  Reinforcement Learning: An Introduction} Kluwer Academic Publishers
+\bibitem{4}{\it https://medium.com/machine-learning-for-humans/reinforcement-learning-6eacf258b265}
 \end{thebibliography}
 
 \end{document}
