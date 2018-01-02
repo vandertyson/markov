@@ -221,8 +221,31 @@ $$q_\pi (s,a) = \mathbb{E}_\pi [R_{t+1} + \gamma q_\pi (S_{t+1},A_{t+1}) | S_t =
 \end{frame}
 
 \section{Q-Learning}
-%------------------------------------------------
-%tự xử nhá
+\begin{frame}
+\begin{block}{Định lý}
+Cho quá trình quyết đinh Markov hữu hạn $MDP(\mathcal{X},\mathcal{A},\mathcal{P},r)$
+.Hàm mục tiêu:
+$$J(x,{A_t})=E\big[ \sum_{t=0}^\infty{\gamma^t R(X_t,A_t)|X_0=x} \big]$$
+Thuật toán Q-learning với công thức lặp:
+$$Q_{t+1}(s_t,a_t)=Q_t(x_t,a_t)+\alpha_t(x_t,a_t)[r_t +\gamma max_{b \in \mathcal{A}}Q_t(x_{t+1},b)-Q_t(x_t,a_t)]$$
+Hội tụ với xác suất bằng 1 tới hàm Q tối ưu:
+$$Q^*(x,a)=\sum_{y\in\mathcal{X}}{P(x,a,y)[r(x,a,y)+\gamma V^*(y)]}$$
+Trong đó V* là hàm giá trị tối ưu của J:
+$$V^*(x)=max_{a\in\mathcal{A}}\sum_{y\in\mathcal{X}}{P(x,a,y)[r(x,a,y)+\gamma V^*(y)]}$$
+\end{block}
+\end{frame}
+\section{Ứng dụng Q-learning}
+\begin{frame}
+\frametitle{Ứng dụng Q-learning trong game AI }
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{s3.png}
+  \end{center}
+  \label{s1}
+\end{figure}
+\end{frame}
+
+
 %------------------------------------------------
 \section{Kết quả và nhận xét}
 %------------------------------------------------

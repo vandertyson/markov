@@ -114,7 +114,7 @@ Chiến lược dừng tất định (Deterministic stationary policies) thể h
 A_t = \pi (X_t)
 \end{equation}
 Thông thuường, một chiến lược ngẫu nhiên dừng (stochastic stationary policy) $\pi$ ánh xạ các trạng thái để phân phối không gian các hành động. Khi đề cập đến 1 chiến lược $\pi$, chúng ta kí hiệu $\pi (a|x)$ để biểu diễn xác suất để hành động $a$ được chọn bởi $\pi$ ở trạng thái $x$. Chú ý rằng nếu một chiến lược trong quá trình quyết định Markov thỏa mãn 
-$$A_t  \sim \pi (\cdotp | X_t),  t \in \mathbb{N},$$ thì quá trình trạng thái $(X_t; t \geq 0)$ là một xích Markov. Chúng ta sử dụng $\Pi_stat$ để ký hiệu cho tập tất cả các chiến lược dừng.  Một chiến lược và 1 quá trinh quyết định Markov thì được gọi là Quá trình Markov có phần thưởng (Markov reward processes): Một MRP được xác định bởi cặp $\mathcal{M} = (\mathcal{X},\mathcal{P}_0)$, trong đó $\mathcal{P}_0$ là một xác suất tính dựa vào $\mathcal{X} x \mathbb{R}$ với mỗi trạng thái. Một MRP $\mathcal{M}$ làm tăm quá trình ngẫu nhiên $((X_t,R_{t+1});t\geq 0)$, tại $(X_{t+1},R_{t+1}) \sim \mathcal(P)_0(\cdotp | X_t)$. Cho một chiến lược dừng $\pi$ và một MDP $\mathcal{M} = (\mathcal{X},\mathcal{A},\mathcal{P}_0)$, lõi chuyển của MRP $(\mathcal{X},\mathcal{P}^\pi_0)$ gây ra bởi $\pi$ và $\mathcal{M}$ được định nghĩa bằng $\mathcal(P)^\pi_0(\cdotp|x) = \sum_{a \in \mathcal{A}} \pi(a|x)\mathcal{P}_0(\cdotp|x,a)$. Một MRP được gọi là hữu hạn nếu không gian các trạng thái của nó là hữu hạn.//
+$$A_t  \sim \pi (\cdotp | X_t),  t \in \mathbb{N},$$ thì quá trình trạng thái $(X_t; t \geq 0)$ là một xích Markov. Chúng ta sử dụng $\Pi_stat$ để ký hiệu cho tập tất cả các chiến lược dừng.  Một chiến lược và 1 quá trinh quyết định Markov thì được gọi là Quá trình Markov có phần thưởng (Markov reward processes): Một MRP được xác định bởi cặp $\mathcal{M} = (\mathcal{X},\mathcal{P}_0)$, trong đó $\mathcal{P}_0$ là một xác suất tính dựa vào $\mathcal{X} x \mathbb{R}$ với mỗi trạng thái. Một MRP $\mathcal{M}$ làm tăm quá trình ngẫu nhiên $((X_t,R_{t+1});t\geq 0)$, tại $(X_{t+1},R_{t+1}) \sim \mathcal(P)_0(\cdotp | X_t)$. Cho một chiến lược dừng $\pi$ và một MDP $\mathcal{M} = (\mathcal{X},\mathcal{A},\mathcal{P}_0)$, lõi chuyển của MRP $(\mathcal{X},\mathcal{P}^\pi_0)$ gây ra bởi $\pi$ và $\mathcal{M}$ được định nghĩa bằng $\mathcal(P)^\pi_0(\cdotp|x) = \sum_{a \in \mathcal{A}} \pi(a|x)\mathcal{P}_0(\cdotp|x,a)$. Một MRP được gọi là hữu hạn nếu không gian các trạng thái của nó là hữu hạn.\\
 Chúng ta định nghĩa hàm giá trị dựa trên chiến lược dừng. Hàm giá trị $V^\pi:\mathcal{X}\rightarrow\mathbb{R}$ dựa trên $\pi$ được tính bởi 
 
 \begin{equation} \label{eq7}
@@ -131,7 +131,7 @@ Nó rất hữu dụng trong việc định nghĩa hàm hành động-giá trị
 
 $$Q^\pi(x,a) =\mathbb{E}\bigg[\displaystyle\sum^\infty_{t=0}{\gamma^tR_{t+1}|X_0=x,A_0=a}\bigg], x\in\mathcal{X}, a\in\mathcal{A}.$$
 
-Tương tự như $V*(x)$, hành động – giá trị tối ưu $Q*(x,a)$ với cặp trạng thái – hành động $(x,a)$ được định nghĩa là cực đại của kỳ vọng lợi nhuận với ràng buộc rằng quá trình bắt đầu ở trạng thái $x$, và hành động đầu tiên là $a$. $Q*:\mathcal(X)x\mathcal{A}\rightarrow\mathbb{R}$ được gọi là hàm hành động – giá trị tối ưu.//
+Tương tự như $V*(x)$, hành động – giá trị tối ưu $Q*(x,a)$ với cặp trạng thái – hành động $(x,a)$ được định nghĩa là cực đại của kỳ vọng lợi nhuận với ràng buộc rằng quá trình bắt đầu ở trạng thái $x$, và hành động đầu tiên là $a$. $Q*:\mathcal(X)x\mathcal{A}\rightarrow\mathbb{R}$ được gọi là hàm hành động – giá trị tối ưu.\\
 Hàm giá trị tối ưu và hàm hành động – giá trị tối ưu có liên hệ với nhau bởi các đẳng thức sau:
 
 $$V^*(x) = \displaystyle\sup_{a\in\mathcal{A}} Q^*(x,a),  x\in\mathcal{X}$$
@@ -166,7 +166,7 @@ $$(T^\pi V)(x) = r(x,\pi(x)) + \gamma \displaystyle\sum_{y\in\mathcal{X}}{\mathc
 T^\pi V^\pi =V^\pi
 \end{equation}
 
-Chú ý rằng đây là hệ phương trình tuyến tính $V^\pi$ và $T^\pi$ là một toán tử tuyến tính affine. Nếu $0<\gamma<1$ thì $T^\pi$ là một chuẩn max bị chặn và phương tình điểm cố định $T^\pi V = V$ có duy nhất một phương án.//
+Chú ý rằng đây là hệ phương trình tuyến tính $V^\pi$ và $T^\pi$ là một toán tử tuyến tính affine. Nếu $0<\gamma<1$ thì $T^\pi$ là một chuẩn max bị chặn và phương tình điểm cố định $T^\pi V = V$ có duy nhất một phương án.\\
 Khi không gian trạng thái $\mathcal{X}$ là hữu hạn thì ta nói có $D$ trạng thái $\mathbb{R}^\mathcal{X}$ có thể được xác định với không gian Euclide D-chiều và $V\in\mathbb{R}^\mathcal{X}$ có thể được hiểu là một vector D-chiều: $V\in\mathbb{R}^D$. Với các định nghĩa này, $T^\pi V$ có thể được viết thành $r^\pi+\gamma P^\pi V$ với một vector $r^\pi\in\mathbb{R}^D$ và ma trận $P^\pi\in\mathbb{R}^{DxD}$. Trong trường hợp này, \ref{eq10} có thể viết dưới dạng
 
 
@@ -197,7 +197,7 @@ Chú ý rằng đây là toán tử phi tuyến do sự có mặt của sup. V�
 $$T*V*=V*$$
 
 Nếu $0<\gamma<1$, thì $T*$ là một chuẩn max bị chặn, và phương trình điểm cố định $T*V=V$ có một phương án duy nhất.
-Chúng ta sẽ viết biểu thức như là $(T^\pi V)(x)$ thành $T^\pi V(x)$, và ngầm hiểu rằng ừng dụng của toán tử $T^\pi$ được ưu tiên áp dụng cho toán tử đánh giá điểm, “$(x)$”.//
+Chúng ta sẽ viết biểu thức như là $(T^\pi V)(x)$ thành $T^\pi V(x)$, và ngầm hiểu rằng ừng dụng của toán tử $T^\pi$ được ưu tiên áp dụng cho toán tử đánh giá điểm, “$(x)$”.\\
 Các hàm hành động – giá trị dựa trên một chiến lược (hoăc một MRP) và hàm hành động –giá trị tối ưu cũng thỏa mãn các phương trình điểm cố định như công thức trước đó:
 
 Tiên đề 3 (Các toán tử Bellman và Các đẳng thức điẻm cố định cho Hàm Hành động – Giá trị): Ta đinh nghĩa $T^\pi: \mathbb{R}^{\mathcal{X}x\mathcal{A}}\rightarrow\mathbb{R}^{\mathcal{X}x\mathcal{A}}$ và $T*: \mathbb{R}^{\mathcal{X}x\mathcal{A}}\rightarrow\mathbb{R}^{\mathcal{X}x\mathcal{A}}$ như sau:
@@ -318,8 +318,7 @@ $$Q=\begin{bmatrix}
 Từ ma trận trên ta thu được đồ thị mới:\\
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{5.png}
 \\
-Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái 2 tới trạng thái 5 tối ưu như sau:
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{6.png}
+Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái 2 tới trạng thái 5 tối ưu như sau: 
 \begin{enumerate}
 \item Từ trạng thái 2, để Q đạt giá trị max thì di chuyển tới trạng thái 3. 
 \item Từ trạng thái 3, để Q đạt max thì di chuyển tới 1 hoặc 4. Chọn di chuyển tới 1.
@@ -328,20 +327,21 @@ Suy luận từ đồ thị, ta tìm được 1 đường đi từ trạng thái
 \end{enumerate}
 
 \chapter{Ứng dụng}
-	Học tăng cường có rất nhiều ứng dụng trong thực tiễn, ví dụ như áp dụng cho hệ thống điều khiển tự động các cánh tay robot công nghiêp, xe và robot tự hành, các hệ thống ứng dụng trí tuệ nhân tạo như "vua cờ vây" Alpha Go, bot game của OpenAI đã đánh bại nhiều game thủ xuất sắc trên thế giới, giải quyết bài toán "Split Delivery Vehicle Routing" trong việc quản lý chuỗi chuyển phát, thậm chí là hệ thống đánh giá các chiến lược đầu tư như Pit.AI. Còn rất nhiều các lĩnh vực khác nữa, đặc biệt là các lĩnh vực có liên quan đến trí tuệ nhân tạo đang sử dụng các phương pháp học trăng cường cho giải pháp của mình.\\
-	Trong giới hạn của báo cáo, nhóm xin trình bày một mô hình ứng dụng học tăng cường, cụ thể là thuật toán Deep Q-learning (mở rộng cho Q-learning đã trình bày ở trên) vào việc tạo ra một bot chơi game thông minh cho trò chơi Atari được mô tả như hình dưới. Trong trò chơi người chơi có nhiêm vụ điều khiển nhân vật (hình tròn đen) di chuyển (đi thẳng và rẽ theo các hướng) sao cho thu được nhiều quả táo chín (hình tròn đỏ) và tránh các quả táo độc (hình tròn xanh) trong môi trường 2D bị giới hạn. Bài toán được mô hình hóa theo phương pháp học tăng cường như sau:
+Học tăng cường có rất nhiều ứng dụng trong thực tiễn, ví dụ như áp dụng cho hệ thống điều khiển tự động các cánh tay robot công nghiêp, xe và robot tự hành, các hệ thống ứng dụng trí tuệ nhân tạo như "vua cờ vây" Alpha Go, bot game của OpenAI đã đánh bại nhiều game thủ xuất sắc trên thế giới, giải quyết bài toán "Split Delivery Vehicle Routing" trong việc quản lý chuỗi chuyển phát, thậm chí là hệ thống đánh giá các chiến lược đầu tư như Pit.AI. Còn rất nhiều các lĩnh vực khác nữa, đặc biệt là các lĩnh vực có liên quan đến trí tuệ nhân tạo đang sử dụng các phương pháp học trăng cường cho giải pháp của mình.\\
+	
+Trong giới hạn của báo cáo, nhóm xin trình bày một mô hình ứng dụng học tăng cường, cụ thể là thuật toán Deep Q-learning (mở rộng cho Q-learning đã trình bày ở trên) vào việc tạo ra một bot chơi game thông minh cho trò chơi Atari được mô tả như hình dưới. Trong trò chơi người chơi có nhiêm vụ điều khiển nhân vật (hình tròn đen) di chuyển (đi thẳng và rẽ theo các hướng) sao cho thu được nhiều quả táo chín (hình tròn đỏ) và tránh các quả táo độc (hình tròn xanh) trong môi trường 2D bị giới hạn. Bài toán được mô hình hóa theo phương pháp học tăng cường như sau:
 \begin{itemize}
 \item Tác tử là nhân vật, có khả năng đi thẳng và rẽ hướng. Để đơn giản,ta giả sử tác tử luôn luôn di chuyển, có khả năng thực hiện 5 hành động đó là rẽ theo 5 hướng khác nhau
 \item Trạng thái của quá trình được thể hiện qua giá trị của các cảm biến (9 vecto). Các vecto có tác dụng thu nhận các giá trị khoảng cách của nhân vật tới vị trí của tường, táo xanh, táo đỏ.
 \item Tại mỗi thời điểm, Dựa vào vị trí của tác tử trong không gian để tặng thưởng cho nó. Nếu tác tử ăn được táo đỏ (vị trí của tác tử trùng với vị trí của táo đỏ) thì nó được thưởng 1 điểm, ngược lại nếu ăn phải táo xanh thì bị trừ 1 điểm.
-\item Nhiệm cụ của chúng ta là cần tìm một chiến lược điều khiển tác tử để sao cho khi kết thúc trò chơi (chẳng hạn sau 1 khoảng thời gian nào đó) điểm thưởng thu được là lớn nhất.
+\item Nhiệm vụ của chúng ta là cần tìm một chiến lược điều khiển tác tử để sao cho khi kết thúc trò chơi (chẳng hạn sau 1 khoảng thời gian nào đó) điểm thưởng thu được là lớn nhất.
 \end{itemize}
 \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{6.png}
 \\
 Theo lý thuyết Q-learning, phần thưởng thu được của trò chơi tại thời điểm t có dạng như sau:
-$$R_t = r_t+\gammarR_{t+1}$$
+$$R_t = r_t+\gamma rR_{t+1}$$
 Hàm $Q(s,a)$ đại diện cho phần thưởng thu được trong tương lai nếu khi thực hiện hành động a khi ở trạng thái s 
-$$Q(s_t,a_t) = maxR+t+1$$
+$$Q(s_t,a_t) = maxR_{t+1}$$
 Hay 
 $$Q(s_t,a_t) = r + \gamma max_{a'}Q(s',a')$$
 Như vậy nếu như có hàm Q rồi thì việc quyết định hành động cho mỗi trạng thái trở nên đơn giản, ta chọn hành động đem lại giá trị Q lớn nhất sẽ được một chiến lược tối ưu. Có rất nhiều cách để biểu diễn hàm Q này chẳng hạn như ở dạng bảng. Trong bài toán này ta sử dụng mô hình mạng nơ ron truyền thẳng 4 lớp như sau:
@@ -351,7 +351,7 @@ Như vậy nếu như có hàm Q rồi thì việc quyết định hành động
 \item Lớp ra là 1 vecto 5 chiều cho biết các giá trị Q của các hành động tương ứng với trạng thái vào
 \end{itemize}
 Hàm mất mát:
-$$L=1/2[r+max_{a'}Q(s',a')-Q(s,a)$$
+$$L=\frac{1}{2}[max_{a'}Q(s',a')-Q(s,a)]^2$$
 Để huấn luyện mạng ta thực hiện như sau:
 \begin{enumerate}
 \item Truyền trạng thái hiện tại s qua mạng để thu được giá trị Q của tất cả các trạng thái. Tính điểm thưởng hiện tại r.
