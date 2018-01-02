@@ -5,7 +5,6 @@
 \contentsline {subsection}{\numberline {2.1.2}H\IeC {\`a}m gi\IeC {\'a} tr\IeC {\d i}}{8}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}Quy ho\IeC {\d a}ch \IeC {\dj }\IeC {\d \ocircumflex }ng \IeC {\dj }\IeC {\h \ecircumflex } gi\IeC {\h a}i MDPs}{12}{subsection.2.1.3}
 \contentsline {section}{\numberline {2.2}Thu\IeC {\d \acircumflex }t to\IeC {\'a}n Q-learning}{12}{section.2.2}
-\contentsline {chapter}{\numberline {3}\IeC {\'\UHORN }ng d\IeC {\d u}ng trong th\IeC {\d \uhorn }c t\IeC {\'\ecircumflex }}{21}{chapter.3}
-\contentsline {chapter}{\numberline {4}K\IeC {\'\ecircumflex }t qu\IeC {\h a}}{22}{chapter.4}
-\contentsline {chapter}{\numberline {5}T\IeC {\h \ocircumflex }ng k\IeC {\'\ecircumflex }t v\IeC {\`a} b\IeC {\`a}n lu\IeC {\d \acircumflex }n}{23}{chapter.5}
+\contentsline {chapter}{\numberline {3}\IeC {\'\UHORN }ng d\IeC {\d u}ng}{20}{chapter.3}
+\contentsline {chapter}{\numberline {4}K\IeC {\'\ecircumflex }t qu\IeC {\h a}}{23}{chapter.4}
 \contentsline {chapter}{\hskip 1em\relax \ \bf T\IeC {\`a}i li\IeC {\d \ecircumflex }u tham kh\IeC {\h a}o}{24}{chapter*.2}
