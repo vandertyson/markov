@@ -227,7 +227,7 @@ Cho quá trình quyết đinh Markov hữu hạn $MDP(\mathcal{X},\mathcal{A},\m
 .Hàm mục tiêu:
 $$J(x,{A_t})=E\big[ \sum_{t=0}^\infty{\gamma^t R(X_t,A_t)|X_0=x} \big]$$
 Thuật toán Q-learning với công thức lặp:
-$$Q_{t+1}(s_t,a_t)=Q_t(x_t,a_t)+\alpha_t(x_t,a_t)[r_t +\gamma max_{b \in \mathcal{A}}Q_t(x_{t+1},b)-Q_t(x_t,a_t)]$$
+$$Q_{t+1}(s_t,a_t)=Q_t(x_t,a_t)+\alpha[r_t +\gamma max_{b \in \mathcal{A}}Q_t(x_{t+1},b)-Q_t(x_t,a_t)]$$
 Hội tụ với xác suất bằng 1 tới hàm Q tối ưu:
 $$Q^*(x,a)=\sum_{y\in\mathcal{X}}{P(x,a,y)[r(x,a,y)+\gamma V^*(y)]}$$
 Trong đó V* là hàm giá trị tối ưu của J:

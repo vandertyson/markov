@@ -253,20 +253,47 @@ Chú ý rằng $T^\pi$ là tuyến tính affine, $T*$ là phi tuyến. Toán t�
 \subsection{Quy hoạch động để giải MDPs}
 
 \section{Thuật toán Q-learning}
-Q-learning là một kỹ thuật đánh giá hành động nào sẽ được chấp nhận dựa trên một hàm giá trị-hành động xác định giá trị của một trạng thái nào đó và thực hiện một hành động nào đó ở trạng thái đó. 
+Q-learning là một kỹ thuật đánh giá hành động nào sẽ được chấp nhận dựa trên một hàm giá trị-hành động xác định giá trị của một trạng thái nào đó và thực hiện một hành động nào đó ở trạng thái đó.\\
 
+Cho quá trình quyết đinh Markov hữu hạn $MDP(\mathcal{X},\mathcal{A},\mathcal{P},r)$. Trong đó hàm thưởng r:
+$$r:\mathcal{X}\times\mathcal{A}\times\mathcal{X} \rightarrow \mathbb{R}$$
+là hàm xác định và bị chặn.\\
+
+	Giá trị đạt được khi thực hiện chuỗi hành động ${A_t}$ ở trạng thái x được định nghĩa:
+$$J(x,{A_t})=E\big[ \sum_{t=0}^\infty{\gamma^t R(X_t,A_t)|X_0=x} \big]$$
+Hàm giá trị tối ưu được định nghĩa:
+$$V^*(x)=max_{\mathcal{A}}J(x,{A_t})$$ 
+và thỏa mãn:
+$$V^*(x)=max_{\mathcal{A}}\sum_{y\in\mathcal{X}}{P(x,a,y)[r(x,a,y)+\gamma V^*(y)]}$$
+Từ đây, ta định nghĩa 1 hàm Q tối ưu như sau:
+$$Q^*(x,a)=\sum_{y\in\mathcal{X}}{P(x,a,y)[r(x,a,y)+\gamma V^*(y)]}$$
+Năm 1992, Watkin và Dayan đã chứng minh thuật toán Q-learning với công thức lặp:
+\begin{equation} \label{eq16}
+Q_{t+1}(s_t,a_t)=Q_t(x_t,a_t)+\alpha[r_t +\gamma max_{b \in \mathcal{A}}Q_t(x_{t+1},b)-Q_t(x_t,a_t)]
+\end{equation}
+cho chúng ta hàm Q hội tụ tới $Q^*$ với xác suất bằng 1 khi $0 \leq \alpha \leq 1$ và tát cả các cặp trạng thái - hành động $(x,a)$ được lặp lại vô hạn cho công thức trên.\\
+ 
 Chúng ta có một hàm Q với đầu vào là một trạng thái và một hành động,đầu ra là phần thưởng mong đợi của hành động đó (và tất cả các hành động tiếp theo) ở trạng thái đó. Trước khi chúng ta khám phá môi trường, Q cho cùng một giá trị cố định (tùy ý). Nhưng khi chúng ta khám phá môi trường nhiều hơn, Q cho chúng ta một sự ước lượng ngày một tốt hơn về giá trị của một hành động ở trạng thái nào đó. Giá trị của Q được cập nhật liên tục trong quá trình tác tử hành động. 
 	Phương trình của Q-learning giải thích tất cả một cách rất độc đáo. Nó cho thấy cách chúng ta cập nhật giá trị của Q dựa trên phần thưởng mà chúng ta nhận được từ môi trường:
-\begin{equation}
-Q(s_t,a_t) \leftarrow Q(s_t,a_t)+\alpha(r_t+\gamma max_{a}Q(s_{t+1},a) - Q(s_t,a_t)
+\begin{equation}\label{eq17}
+Q(x_t,a_t) \leftarrow Q(x_t,a_t)+\alpha(r_t+\gamma max_{a}Q(x_{t+1},a) - Q(x_t,a_t)
 \end{equation}
 Trong đó $Q:S \times A \rightarrow \mathbb{R}$ là hàm đánh giá giá trị chất lương của hành động ứng với trạng thái hiện tại. $r_t$ là phần thưởng đã nhận được ở thời trạng thái hiện tại, $\alpha$ là hệ số học, $\gamma$ là hệ số chiết khấu, và $maxQ(s_{t+1},a_t)$ là giá trị ước tính nhận được trong tương lai. Các biến trên có ảnh hưởng tới thuật toán như sau:
 \begin{itemize}
-\item \textbf{Hệ số học}: thể hiện cường độ cập nhật giá trị Q. $\alpha$ càng gần 0 thì giá trị Q cập nhật càng chậm, $alpha = 0$ thì tác tử gần như không học được gì, $alpha = 1$ thì có nghĩa là ta thay thế giá trị Q cũ bằng giá trị mới cập nhật, không lưu giữ lại thông tin giá trị cũ. Trong môi trường tất định, $alpha=1$ là tối ưu. Còn trong môi trường ngẫu nhiên, thuật toán chỉ hội tụ khi hệ số học tiến dần tới 0. Trong thực tiễn $\alpha$ thường được chọn là 0.1 tại mọi thời điểm t.
+\item \textbf{Hệ số học}: thể hiện cường độ cập nhật giá trị Q. $\alpha$ càng gần 0 thì giá trị Q cập nhật càng chậm, $\alpha = 0$ thì tác tử gần như không học được gì, $\alpha = 1$ thì có nghĩa là ta thay thế giá trị Q cũ bằng giá trị mới cập nhật, không lưu giữ lại thông tin giá trị cũ. Trong môi trường tất định, $\alpha=1$ là tối ưu. Còn trong môi trường ngẫu nhiên, thuật toán chỉ hội tụ khi hệ số học tiến dần tới 0. Trong thực tiễn $\alpha$ thường được chọn là 0.1 tại mọi thời điểm t.
 \item \textbf{Hệ số chiết khấu}: xác định tầm ảnh hưởng của phần thưởng trong tương lai. Hệ số chiết khấu càng nhỏ (gần 0) thì tác tử sẽ hầu như chỉ quan tâm tới phần thưởng hiện tại, bỏ qua phần thưởng trong tương lai, ngược lại, hệ số càng gần 1 thì các phần thưởng trong tương lai sẽ được đánh giá cao hơn. Để giá trị của Q hội tụ thì $\gamma$ phải nhỏ hơn 1. Nếu $\gamma$ quá gần 1 cũng sẽ dẫn tới giá trị của Q không ổn định và việc học mất nhiều thời gian. Khi đó việc giảm giá trị $\gamma$ sẽ làm tăng tốc việc học.
 \item \textbf{Điều kiện ban đầu $Q_0$} : Do Q-learning là một thuật toán lặp nên việc chọ giá trị khởi tạo có vai trò quan trọng và đòi hỏi kinh nghiệm khi thực hiện. Với giá trị khởi tạo cao, thuật toán có tác dụng khám phá nhiều hơn.
 \end{itemize} 
 
+$\textbf{Xét ví dụ minh họa}$ cho thuật toán Q-learning sau đây: Giả sử tác tử được đặt trong môi trường là một tầng nhà gồm có 5 phòng (đánh số từ 0 tới 4) với các cửa ra vào được bố trí như hình dưới. Không gian bên ngoài tầng nhà được đánh số 5. Từ phòng 1 và phòng 4 có cửa dẫn ra ngoài tầng nhà. Nhiệm vụ của tác tử là tìm cách thoát ra khỏi tầng nhà từ bất kỳ phòng nào, tức là chuyển tới phòng số 5 từ 1 trong các phòng còn lại một cách nhanh nhất.\\
+\\
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{1.png}
+Có thể biểu diễn sơ đồ tòa nhà trên dưới dạng đồ thị có hướng như hình dưới. Mỗi đỉnh của đồ thị biểu diễn một phòng của tầng nhà (hay một trạng thái của tác tử). Nếu có cửa trực tiếp từ phòng này tới phòng kia thì ta có 1 cạnh nối giữa 2 đỉnh tương ứng (biểu diễn hành động của tác tử).\\
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{2.png}
+\\
+Trọng số của cạnh là phần thưởng cho tác tử khi di chuyển giữa từ phòng này tới phòng kia. Do mục tiêu là thoát khỏi tầng nhà nên hành động trực tiếp thoát ra khỏi tòa nhà được thưởng cao (chẳng hạn được 100 điểm), trong khi những hành động khác không được thưởng (0 điểm) hoặc thậm chí trừ điểm (-1 điểm). Chẳng hạn từ phòng 1 có cửa trực tiếp tới phòng 5 nên cạnh nối đỉnh 1 tới đỉnh 5 có trọng số 100. Từ phòng 1 tới phòng 3 vẫn không thoát được ra ngoài nên cạnh nối từ đỉnh 1 tới đỉnh 3 có trọng số 0, từ phòng 1 không tới trực tiếp được phòng 2 nên cạnh nối từ đỉnh 1 tới đỉnh 2 có trọng số -1. Ta giả sử tác tử bắt đầu từ phòng 2 và cần đi tới phòng 5.\\
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{3.png}
+\\
 	Thuật toán diễn ra như sau:
 \begin{enumerate}
 \item Khởi tạo $\gamma$, ma trận phần thưởng R
@@ -277,22 +304,13 @@ Trong đó $Q:S \times A \rightarrow \mathbb{R}$ là hàm đánh giá giá trị
 \item Chọn một hành động bất kỳ trong số tất cả các hành động có thể theo trạng thái hiện tại
 \item Xác định trạng thái tiếp theo
 \item Với mỗi hành động có thể, xác định giá trị Q đạt được ứng với trạng thái tiếp theo. Chọn ra hành động cho giá trị Q cao nhất
-\item Tính laị giá Q theo công thức 2.1
+\item Tính laị giá Q theo công thức \ref{eq17}
 \item Chuyển trạng thái hiện tại thành trạng thái tiếp theo vừa xác định ở trên và lặp.
 \end{itemize}
 \end{enumerate}
-$\textbf{Xét ví dụ minh họa}$ cho thuật toán Q-learning sau đây: Giả sử tác tử được đặt trong môi trường là một tầng nhà gồm có 5 phòng (đánh số từ 0 tới 4) với các cửa ra vào được bố trí như hình dưới. Không gian bên ngoài tầng nhà được đánh số 5. Từ phòng 1 và phòng 4 có cửa dẫn ra ngoài tầng nhà. Nhiệm vụ của tác tử là tìm cách thoát ra khỏi tầng nhà từ bất kỳ phòng nào, tức là chuyển tới phòng số 5 từ 1 trong các phòng còn lại một cách nhanh nhất.\\
-\\
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{1.png}
-Có thể biểu diễn sơ đồ tòa nhà trên dưới dạng đồ thị có hướng như hình dưới. Mỗi đỉnh của đồ thị biểu diễn một phòng của tầng nhà (hay một trạng thái của tác tử). Nếu có cửa trực tiếp từ phòng này tới phòng kia thì ta có 1 cạnh nối giữa 2 đỉnh tương ứng (biểu diễn hành động của tác tử).\\
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{2.png}
-\\
-Trọng số của cạnh là phần thưởng cho tác tử khi di chuyển giữa từ phòng này tới phòng kia. Do mục tiêu là thoát khỏi tầng nhà nên hành động trực tiếp thoát ra khỏi tòa nhà được thưởng cao (chẳng hạn được 100 điểm), trong khi những hành động khác không được thưởng (0 điểm) hoặc thậm chí trừ điểm (-1 điểm). Chẳng hạn từ phòng 1 có cửa trực tiếp tới phòng 5 nên cạnh nối đỉnh 1 tới đỉnh 5 có trọng số 100. Từ phòng 1 tới phòng 3 vẫn không thoát được ra ngoài nên cạnh nối từ đỉnh 1 tới đỉnh 3 có trọng số 0, từ phòng 1 không tới trực tiếp được phòng 2 nên cạnh nối từ đỉnh 1 tới đỉnh 2 có trọng số -1. Ta giả sử tác tử bắt đầu từ phòng 2 và cần đi tới phòng 5.\\
-\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{3.png}
-\\
 Trong ví dụ này, môi trường là tất định, hệ số học tối ưu $\alpha$ 1. Công thức của thuật toán Q-learning được rút gọn thành:
 \begin{center}
-$Q(s_t,a_t) = R(s_t,a_t)+\gamma max_aQ(s_{t+1},a_t)$\\
+$Q(x_t,a_t) = R(x_t,a_t)+\gamma max_aQ(x_{t+1},a_t)$\\
 \end{center}
 Ta có ma trận phần thưởng trạng thái-hành động tương ứng\\
 Khởi tạo ma trận Q là ma trận 0 cỡ $6 \times 6$, hệ số chiết khấu $\gamma = 0.8$\\
@@ -379,28 +397,27 @@ Trong giới hạn của báo cáo, nhóm xin trình bày một mô hình ứng 
 \\
 Theo lý thuyết Q-learning, phần thưởng thu được của trò chơi tại thời điểm t có dạng như sau:
 $$R_t = r_t+\gamma rR_{t+1}$$
-Hàm $Q(s,a)$ đại diện cho phần thưởng thu được trong tương lai nếu khi thực hiện hành động a khi ở trạng thái s 
-$$Q(s_t,a_t) = maxR_{t+1}$$
+Hàm $Q(x,a)$ đại diện cho phần thưởng thu được trong tương lai nếu khi thực hiện hành động a khi ở trạng thái s 
+$$Q(x_t,a_t) = maxR_{t+1}$$
 Hay 
-$$Q(s_t,a_t) = r + \gamma max_{a'}Q(s',a')$$
+$$Q(x_t,a_t) = r + \gamma max_{a'}Q(x',a')$$
 Như vậy nếu như có hàm Q rồi thì việc quyết định hành động cho mỗi trạng thái trở nên đơn giản, ta chọn hành động đem lại giá trị Q lớn nhất sẽ được một chiến lược tối ưu. Có rất nhiều cách để biểu diễn hàm Q này chẳng hạn như ở dạng bảng. Trong bài toán này ta sử dụng mô hình mạng nơ ron truyền thẳng 4 lớp như sau:
 \begin{itemize}
-\item Lớp vào là 1 vecto 27 chiều là giá trị các các biến (thể hiện trạng thái)
-\item 2 lớp ẩn fully-connected, sử dụng hàm kích hoạt là hàm relu
-\item Lớp ra là 1 vecto 5 chiều cho biết các giá trị Q của các hành động tương ứng với trạng thái vào
+\item Lớp vào có 27 neuron
+\item 2 lớp ẩn fully-connected, mỗi lớp có 50 neuron, sử dụng hàm kích hoạt là hàm relu
+\item Lớp ra có 5 neuron, thê hiện giá trị tương ứng cho 5 hành động.
 \end{itemize}
 Hàm mất mát:
-$$L=\frac{1}{2}[max_{a'}Q(s',a')-Q(s,a)]^2$$
+$$L=\frac{1}{2}[max_{a'}Q(x',a')-Q(x,a)]^2$$
 Để huấn luyện mạng ta thực hiện như sau:
 \begin{enumerate}
-\item Truyền trạng thái hiện tại s qua mạng để thu được giá trị Q của tất cả các trạng thái. Tính điểm thưởng hiện tại r.
-\item Thực hiện hành động theo chiến lược chọn hành động cho giá trị Q lớn nhất. Thu được trạng thái s'.
-\item Truyền trạng thái s' qua mạng để thu được hành động a'. Tính lại Q-value cho hành động vừa chọn theo công thức $r+\gamma max_{a'}Q(s',a')$.
+\item Truyền trạng thái hiện tại x qua mạng để thu được giá trị Q của tất cả các trạng thái. Tính điểm thưởng hiện tại r.
+\item Thực hiện hành động theo chiến lược chọn hành động cho giá trị Q lớn nhất. Thu được trạng thái x'.
+\item Truyền trạng thái x' qua mạng để thu được hành động a'. Tính lại Q-value cho hành động vừa chọn theo công thức $r+\gamma max_{a'}Q(x',a')$.
 \item Thực hiện lan truyền ngược giá trị Q mới cập nhật weights.
 \end{enumerate}
-
-\chapter{Kết quả}
-	Ở những vòng lặp đầu tác tử di chuyển một cách khó hiểu và hoàn toàn không có khái niệm về táo xanh hay táo đỏ. Sau một thời gian huấn luyện đủ lâu, Q-loss giảm dần, và ta quan sát thấy tác tử di chuyển ngày một thông minh, tránh được những quá táo xanh, tránh được tường và cố gắng thu thập nhiều táo đỏ. Môi trường được biến đổi một cách ngẫu nhiên, chẳng hạn như vị trí xuất hiện táo xanh và táo đỏ bị thay đổi nhưng tác tử vẫn thích nghi tốt.
+	Ở những vòng lặp đầu tác tử di chuyển một cách ngẫu nhiên và hoàn toàn không có khái niệm về táo xanh hay táo đỏ. Sau một thời gian huấn luyện đủ lâu, Q-loss giảm dần, và ta quan sát thấy tác tử di chuyển ngày một thông minh, tránh được những quá táo xanh, tránh được tường và cố gắng thu thập nhiều táo đỏ. Môi trường được biến đổi một cách ngẫu nhiên, chẳng hạn như vị trí xuất hiện táo xanh và táo đỏ bị thay đổi nhưng tác tử vẫn thích nghi tốt.
+	
 %============================
 %Tài liệu tham khảo
 \begin{thebibliography}{12}
@@ -409,6 +426,7 @@ $$L=\frac{1}{2}[max_{a'}Q(s',a')-Q(s,a)]^2$$
 \bibitem{2}David Silver, {\it Reinforcement Learning}
 \bibitem{3}Richard Sutton, 2014, {\it  Reinforcement Learning: An Introduction} Kluwer Academic Publishers
 \bibitem{4}{\it https://medium.com/machine-learning-for-humans/reinforcement-learning-6eacf258b265}
+\bibitem{5}{\it http://simplecore-dev.intel.com/nervana/wp-content/uploads/sites/55/2015/12/ProofQlearning.pdf} 
 \end{thebibliography}
 
 \end{document}
